@@ -1,0 +1,180 @@
+I.) Overview
+II.) Requirements
+   1.) ssh requirements
+   2.) sudo requirements
+   3.) http proxy
+
+I.) Overview
+
+autobuild is carried out in 3 phases
+
+Phase 1: installing the development KATA system
+
+Phase 2: packaging the development KATA system (i.e. builing prod.rpm)
+         and transferring all 3 rpms to the control host
+
+Phase 3: installing the production system
+
+
+Phase 1 + 2 are carried out on the development host. The phases have been
+separated because after phase 1 we have a fully functional KATA system.
+It might be useful to do some (smoke) testing between these phases. (Once
+we have that fully automated the phases can be combined.)
+
+Phase 3 is carried out on the production host. There are 2 choices:
+Either the VM used as development machine before is reset and used
+again or there is a dedicated production host. Because we haven't
+scripted VMs yet, this needs to be a separate phase.
+
+The phase is given as a numeric argument to the autobuild script
+
+$ autobuild/autobuild.sh [1|2|3]
+
+The script is started from the root of our git repo. For the time being
+the current work area is built, support for specifying a git revision was
+planned, but not yet implemented. Just checkout what you wanted to build.
+
+It is possible to have development machine and production machine in the same
+VM, if you reset the machine to a clean installation between phase 2 & 3
+
+
+II.) Requirements
+
+1.) ssh requirements
+
+Host and user names can be found from autobuild.sh
+
+If environment variable ABUILDHOSTDEV is set it will be used as dev machine
+(phases 1 & 2)
+
+If environment variable ABUILDHOSTPROD is set it will be used as prod machine
+(phase 3)
+
+If one or both of these environment variables is not set the value from 
+ABUILDHOST will repalce the missing value(s).
+
+If none of these environment variables is set default host abuild is
+used as dev machine (phases 1 & 2), host abuild2 as prod machine
+(phase 3). Typically such names can be added to /etc/hosts, both of them
+could point to the same IP.
+
+Environment variables ABUILDPORTDEV, ABUILDPORTPROD, and ABUILDPORT
+are used anlogously to specify the ssh port. (this is useful if you
+need an ssh tunnel to reach the build host) If none of these variables
+is set 22 will be used.
+
+
+A (private) ssh key is used to access the buildhost, it's public
+counterpart must be authorized for the autobuild user. The local
+location is configurable (as before)
+
+Historical note: In some phase we also required ssh access to root@buildhost.
+This has been replaced by sudo as below, because 
+
+1.) it makes use of the existing setup-buildenv.sh easier
+2.) we don't need to copy the private key to the build host (e.g.
+    if we modified setup@buildenv.sh to do a ssh root@localhost in case
+    there is no tty)
+
+
+2.) sudo requirements
+ 
+On the buildhost the build user needs sudo access to root without password and
+required tty for the following 7 commands
+
+yum: for obvious reasons, installation is what we do here
+cp: to be able to copy shibboleth repo definition to /etc/yum/repos.d
+    to be able to cp mcfg input files to /root
+service: to be able to stop kata related services before building prod.rpm
+true: prod.spec calls this to force the password prompt in interactive usage
+find: called by prod.spec when packaging CKAN files
+cpio: as find
+chown: as find
+
+Acutally on the production host yum should be enough (this has not been
+tested because I use a common template for both hosts)
+
+#
+# Disable "ssh hostname sudo <cmd>", because it will show the password in clear.
+#         You have to run "ssh -t hostname sudo <cmd>".
+#
+Defaults    requiretty
+Defaults:abuild !requiretty     #last match used
+
+...
+
+abuild  ALL=(root)   NOPASSWD: /bin/cp, /usr/bin/yum, /sbin/service, /bin/true, /bin/find, /bin/cpio, /bin/chown
+
+
+3.) Input files
+
+abuild needs the following 4 to 6 files (keys, certificates and master
+configuration)
+
+- ~abuild/abuild-input/abuild-dev-sp-cert.pem
+- ~abuild/abuild-input/abuild-prod-sp-cert.pem
+- ~abuild/abuild-input/abuild-dev-sp-key.pem
+- ~abuild/abuild-input/abuild-prod-sp-key.pem
+- ~abuild/abuild-input/abuild-dev-kata-master.ini (*)
+- ~abuild/abuild-input/abuild-prod-kata-master.ini (*)
+
+(username refers to the definitions in autobuild.sh, so it could actually be
+different)
+
+(*) these 2 master configuration files are optional. Autobuild copies the
+sample from the mcfg package if the (customized) input file doesn't exist.
+
+
+Note: If the same host is used as autobuilddev and autobuildprod, identical
+      files are needed twice (symbolic links work, too). Or of course
+      strictly speaking the dev variants are needed only during phase
+      1 and 2, which the prod variants are needed only during phase 3.
+      If using a common template all files can always be present without any
+      harm.
+
+
+If you don't have the suitable cert/key files in your autobuild
+environment yet, just start autobuild.  It will fail (complaining that
+these inut files are missing). But there will be files
+/etc/shibboleth/sp-{cert,key}.pem.unused, which can be used. Copy them
+to your VM template into the locations given above.  Reset the VM and
+the next time the build will succeed.
+
+Note: In order to be able to use Shibboleth successfully the certificate
+must be registered in the resource register of the federation first.
+
+
+
+4.) http proxy
+
+It might be useful to use a local http caching proxy, because a lot of 
+packages are downloaded from the net repeatedly.
+
+For wget the proxy can be set in /etc/environment like this
+
+http_proxy=http://192.168.56.68:80
+no_proxy=127.0.0.1,localhost
+
+(the 2nd environment varible is required because CKAN contacts SOLR
+via http locally. Without that definition requests to SOLR will be routed
+to the caching proxy who cannot handle them)
+
+yum doens't seem to obey these environment variables, it needs its own
+configuration in /etc/yum.conf like this
+
+proxy=http://192.168.56.68:80
+
+It seems also to be a good idea to disable yum's fastestmirror plugin
+in /etc/yum/pluginconf.d/fastestmirror.conf
+Changing the mirror frequently just because of a couple of
+milliseconds quicker responses will bring the cache hit rate down because
+the data of all mirrors used will be cached separately.
+
+
+Note: Apache disk cache file size is limited to 1 MB by default.
+      http://httpd.apache.org/docs/2.2/mod/mod_disk_cache.html
+
+      E.g. Solr source tar ball is about 70 MB, so I changed the limit to
+      100 MB like this
+
+      CacheMaxFileSize 100000000

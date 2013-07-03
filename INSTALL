@@ -1,0 +1,135 @@
+Installation for kata administrators
+
+Installation should be carried out on a clean RHEL 6 / CentOS 6 machine
+
+Installation requires, that a Solr server is already available. It can
+be present in a separate server or in the same server as the rest of 
+Kata.
+
+I. Packages delivered:
+
+1. mcfg.rpm  (called the master configuration tool)
+2. kata-prod.rpm
+3. dummy-deps.rpm
+
+(rpm files will have version numbers in their names, these have been left
+out in this document for the sake of simplicity. Of course you need to
+specify complete file names including version numbers in all commands
+given below.)
+
+
+II. General remarks
+
+In order to be able to debug possible installation problems it is useful
+to run critical installation steps inside script. (See script(1))
+
+With a longer lifetime of the installation and possible later upgrades
+in mind it might also be useful to use etckeeper (see
+http://joeyh.name/code/etckeeper/). However, this is the
+administrator's choice, the delivered software does not depend in any
+way on etckeeper. Etckeeper has been used successfully during our
+testing at the customer site. Describing etckeeper usage is beyond the
+scope of this document. However, it can be mentioned that after
+etckeeper installation no manual steps are required related to any
+step described in this document.
+
+By default CentOS / Redhat comes with a closed firewall (all incoming
+ports closed, all outgoing ports open). 
+
+Originally our package opened the firewall for KATA (only standard
+ports 80 and 443 are required). This functionality has been removed,
+because the customer preferred to use their own scripts.  Using RHEL 6
+/ CentOS 6 default tools the firewall can be persistently configured
+with the following 2 commands
+
+  - "sudo lokkit --update -p 80:tcp"
+  - "sudo lokkit --update -p 443:tcp"
+
+Opening further ports is not needed for KATA and happens on the
+administrator's own risk.
+
+
+II. Installation steps
+
+1. Enable EPEL & Shibboleth repos
+   1.a. "sudo yum install http://www.nic.funet.fi/pub/mirrors/fedora.redhat.com/pub/epel/6/i386/epel-release-6-8.noarch.rpm"
+   1.b "cd /etc/yum.repos.d"
+   1.c "sudo curl -O http://download.opensuse.org/repositories/security://shibboleth/CentOS_CentOS-6/security:shibboleth.repo"
+   1.d "sudo yum install -y http://yum.postgresql.org/9.2/redhat/rhel-6-x86_64/pgdg-redhat92-9.2-7.noarch.rpm"
+
+
+2. Install dummy-deps
+
+   (This package helps to avoid having packages installed, which are not
+   required on a production server)
+
+   "sudo yum install dummy-deps.rpm"
+
+
+3. Install master configuration tool
+
+   3.a. "sudo yum install mcfg.rpm"
+   3.b. copy the provided master configuration sample file
+        "sudo cp -i /usr/share/mcfg/examples/kata-master.ini /root/"
+   3.c. Edit it "sudo -e /root/kata-master.ini"
+        Cf. Appendix A Configuration for details
+
+
+4. Install kata
+
+   4.a. Make sure the certificate & key input files referred to by
+        /root/kata-master.ini are in place (typically /root/sp-{root,key}.pem)
+   4.b. The next step will produce a lot of output. It is recommended to start
+        a script session now
+   4.c. "sudo yum install kata.rpm"
+   4.d. Terminate the script session if you started one
+
+5. Use kata
+
+   System is operational. All configuration has happened in step 4.c.
+
+   Current Kata installation uses md5 password authentication in database 
+   connections. A default password is provided in the installation and it 
+   should be changed especially in production systems with two steps:
+
+   1. In psql say: ALTER USER apache WITH PASSWORD 'yournewpassword'
+   2. In /etc/kata.ini change the sql connection string: 
+      sqlalchemy_url: postgresql://apache:yournewpassword@127.0.0.1/ckandb
+   3. Apply the new settings by restarting httpd with:
+      service httpd restart
+
+A. Configuration
+
+A.1. SSL keys and certificates
+
+   Apache and Shibboleth need an SSL key and certificate pair. It's possible
+   the use the same pair for both programs or have a different pair for each
+   program.
+
+   The configuration is slightly different for the two programs. The
+   key/certificate pair for Shibboleth will be installed by mcfg. The
+   administrator provides the input filenames in the following two
+   parameters in /root/kata-master.ini (Installation means the files are
+   copied to /etc/shibboleth as spcert.pem and spkey.pem. After installation
+   the input files could be deleted.)
+
+[shibboleth-sp-cert]
+location: /root/sp-cert.pem
+
+[shibboleth-sp-key]
+location: /root/sp-key.pem
+
+   The filenames should be given as absolute paths, the names do not matter.
+
+   For Apache the key/certificate pair is not installed by mcfg, but the file
+   names of a previously installed pair are given in the following 2
+   parameters
+
+[DEFAULT]
+apache_ssl_cert: /etc/shibboleth/spcert.pem
+apache_ssl_key: /etc/shibboleth/spkey.pem
+apache_ssl_bundle: /etc/pki/tls/certs/ca-bundle.crt
+   The default values shown here refer to the Shibboleth key/certificate pair.
+   If they remain unchanged Apache will use the same certificates that are
+   being installed for Shibboleth as previously described. The bundle is 
+   separate from Shibboleth, but it is installed via mod_ssl.

@@ -1,0 +1,17 @@
+#!/bin/bash
+#http://stackoverflow.com/questions/185451/quick-and-dirty-way-to-ensure-only-one-instance-of-a-shell-script-is-running-at
+su apache <<'EOF'
+LOCKFILE=/tmp/kataindexlock
+if [ -e ${LOCKFILE} ] && kill -0 `cat ${LOCKFILE}`; then
+    exit
+fi
+
+# make sure the lockfile is removed when we exit and then claim it
+trap "rm -f ${LOCKFILE}; exit" INT TERM EXIT
+echo $$ > ${LOCKFILE}
+
+# do stuff
+/home/ckan/pyenv/bin/paster --plugin=ckan search-index rebuild -o --config=/etc/kata.ini
+
+rm -f ${LOCKFILE}
+EOF

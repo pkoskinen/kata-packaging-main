@@ -1,0 +1,3 @@
+pip.freeze is used during the installation to compare the result against
+a known result
+

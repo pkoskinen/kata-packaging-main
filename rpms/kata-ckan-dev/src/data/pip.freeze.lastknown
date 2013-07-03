@@ -1,0 +1,68 @@
+Babel==0.9.6
+Beaker==1.6.4
+FormAlchemy==1.4.2
+FormEncode==1.2.6
+Genshi==0.6
+Jinja2==2.6
+Mako==0.8.0
+MarkupSafe==0.15
+Orange==2.6
+Orange-Text==1.2a1
+Pairtree==0.7.1-T
+Paste==1.7.5.1
+PasteDeploy==1.5.0
+PasteScript==1.7.5
+Pygments==1.6
+Pylons==0.9.7
+Routes==1.13
+SQLAlchemy==0.7.8
+Tempita==0.5.1
+WebError==0.10.3
+WebHelpers==1.3
+WebOb==1.0.8
+WebTest==2.0.5
+amqplib==1.0.2
+anyjson==0.3.3
+apachemiddleware==0.1.1
+argparse==1.2.1
+-e bzr+http://bazaar.launchpad.net/~leonardr/beautifulsoup/bs4/@288#egg=beautifulsoup4-4.1.3-py2.6-dev_r288
+carrot==0.10.7
+-e git+https://github.com/kata-csc/ckan.git@ff73a4d2dd963d37618486c03524f8551f82b2b6#egg=ckan-dev
+ckanclient==0.10
+-e git+https://github.com/kata-csc/ckanext-ddi.git@a018a8c02a5d619f246ab640a96fc57a10d1e0e3#egg=ckanext_ddi-dev
+-e git+https://github.com/kata-csc/ckanext-harvest.git@48d5a9b244e29a508c0cc92a969d7630b3e5392c#egg=ckanext_harvest-dev
+-e git://github.com/kata-csc/ckanext-kata.git@a57d9bb2461a55d1acf4923e5ec99bcab4c6ca69#egg=ckanext_kata-dev
+-e git+https://github.com/kata-csc/ckanext-oaipmh.git@0ef57aaaf4983796870dea97640579726fb78675#egg=ckanext_oaipmh-dev
+-e git://github.com/kata-csc/ckanext-shibboleth.git@ffb6e41bf2d7b2b452f8638b140c8b4b03ea2d54#egg=ckanext_repoze_who_shibboleth-dev
+-e git+https://github.com/kata-csc/ckanext-sitemap.git@1df31049473a7bd6f82967a5a9de8b93d8cc0616#egg=ckanext_sitemap-dev
+-e git+https://github.com/kata-csc/ckanext-urn.git@b48dfffb0f327aaaf21664ec0057f137ab58ce41#egg=ckanext_urn-dev
+decorator==3.4.0
+fanstatic==0.12
+html5lib==0.95
+iso8601==0.1.4
+isodate==0.4.9
+lxml==3.2.0
+nose==1.3.0
+numpy==1.7.1
+ofs==0.4.1
+ordereddict==1.1
+psycopg2==2.4.5
+pycountry==0.14.8
+pyoai==2.4.4
+python-dateutil==2.1
+python-openid==2.2.5
+pyutilib.component.core==4.5.3
+rdflib==3.4.0
+repoze.lru==0.6
+repoze.who==1.0.19
+repoze.who-friendlyform==1.0.8
+repoze.who.plugins.openid==0.5.3
+requests==0.14.0
+simplejson==3.3.0
+six==1.3.0
+solrpy==0.9.5
+sqlalchemy-migrate==0.7.2
+unicodecsv==0.9.0
+-e git+https://github.com/okfn/vdm.git@e4a59e2b7d3f918a160f21f0d9face29e864a3ce#egg=vdm-dev
+waitress==0.8.3
+zope.interface==4.0.1

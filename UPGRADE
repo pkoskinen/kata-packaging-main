@@ -1,0 +1,121 @@
+Upgrading kata-ckan-prod
+
+0.) Introduction
+
+The installation of kata-ckan-prod.rpm is mainly intended for installation on
+a clean minimal RHEL/CentOS system as documented in INSTALL. Upgrading an
+existing installation is only supported by carefully following the
+instructions below.
+
+As always in before bigger administration works, make sure you have a
+complete and valid backup, peferably on a seperate storage medium that
+is not mounted during backup. Most commands during the upgrade are
+executed as root, a simple typo or some unknown software bug has the
+potential to lead to fatal data loss.
+
+
+1.) Clear the search index
+
+WIP: current status: skip this step
+
+TODO: currently unclear whether we need this step. There might be
+      still changes coming to index updating during production and
+      they will have an influence what needs to be done for upgrade.
+
+$ sudo service supervisord stop
+$ sudo service rabbitmq-server stop
+   (Above commands ensure that harvesters don't fetch anything new during 
+   cleaning. Uninstallation of kata-ckan-prod does it, too, but
+   after uninstallation we cannot run it)
+
+$ sudo -s -u ckan
+$ cd
+$ source pyenv/bin/active
+$ paster --plugin=ckan search-index clear --config=/etc/kata.ini
+$ exit                               (exit from previous sudo)
+
+TODO: if we really need this step, above commands should be added
+to our existing paster script.
+
+
+2.) uninstall kata-ckan-prod and mcfg
+
+$ sudo yum remove mcfg           (this will pull kata-ckan-prod with it)
+
+check whether there a files left in /home/ckan
+
+Take a backup of anything you might have configured or modyfied yourself and
+remove everything (double-check your command, rm -rf as root is a dangerous
+command...)
+
+$ sudo rm -rf /home/ckan
+
+3.) Uninstallation of supervisor
+
+(the idea is to get rid of the configuration modified by kata-prod, so we can 
+start with a fresh one again)
+ 
+$ sudo yum remove supervisor
+$ sudo rm /etc/supervisord.conf.rpmsave
+
+(The rm commands here and in the following steps are only for your
+orientation. The idea is to make sure that now configuration of the
+package in question should remain. If etckeeper is in use
+the appropriate "git rm" commands should be given instead)
+
+
+4.) Uninstallation of shibboleth
+
+(same idea as with supervisor)
+
+$ sudo yum remove shibboleth
+$ sudo rm -r /etc/shibboleth [1]
+
+
+
+5.) Uninstallation of apache
+
+(same idea as with supervisor)
+
+$ sudo yum remove httpd
+$ sudo rm -r /etc/httpd [1]
+
+
+6.) Clean-up rabbitmq
+
+Currently no actions needed.
+
+(Only needed when message format has changed or major upgrade to
+rabbitmq configuration (has never happened). See git history for steps
+we have carried out before. One needs to make sure that no important
+messages (e.g harvester fetch messages) are in the queue if the queue
+is flushed.)
+
+
+7.) Install the new packages
+
+Follow the steps 
+
+- install master configuration tool and
+- install KATA
+
+as documented in the INSTALL document.
+
+
+
+[1] If etckeeper is in use removing configuration files should take
+this into accout. Although etckeeper usage is beyond of the scope of
+this document here the commands the author uses with for cleaning up after
+package removal when etckeeper with git is in use:
+
+# cd /etc
+# find . -name \*.rpmsave | xargs rm
+                   (by etckeeper default rpmsave files are gitignored)
+# find httpd/ -type f | xargs git rm
+# find shibboleth/ -type f | xargs git rm
+# git commit -a -m "manually removed remaining kata configurations as documented in UPGRADE"
+
+(Probably strictly speaking the manual git operations would not even
+be required. Etckeeper pre-yum hook should do the same after just plain
+rm commands have been used as listed in the main instruction list
+above. However, the author found the explicit operation somewhat clearer.)
