@@ -4,7 +4,6 @@
 # in 512 MB VMs)
 # don't package any open file (not sure, there shouldn't be any...) 
 sudo service supervisord stop
-sudo service tomcat6 stop
 sudo service httpd stop
-sudo service postgresql stop
+sudo service postgresql-9.2 stop
 
