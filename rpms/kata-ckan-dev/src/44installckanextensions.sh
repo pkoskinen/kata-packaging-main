@@ -22,6 +22,7 @@ else
    ext_sitemap_version=""
    ext_shibboleth_version=""
    ext_kata_version=""
+   ext_admin_version=""
    # well missing assignments would have had the same effect as empty values
    # but let's have them here for clarity. Maybe we want to hard-code
    # some values here in a later project phase
@@ -47,12 +48,14 @@ patch -b -p2 -i /usr/share/kata-ckan-dev/setup-patches/who.ini.patch
 
 pip install -e git+git://github.com/kata-csc/ckanext-kata.git${ext_kata_version}#egg=ckanext-kata
 
+pip install -e git+git://github.com/pkoskinen/ckanext-admin.git${ext_admin_version}#egg=ckanext-admin
+
 $(dirname $0)/48initextensionsdb.sh $instloc
 # this script is dev only, so no problem with the password on github
 paster --plugin=ckan user add harvester password=harvester email=harvester@harvesting.none --config=/etc/kata.ini
 paster --plugin=ckan sysadmin add harvester --config=/etc/kata.ini
 
-extensions="shibboleth harvest oaipmh_harvester synchronous_search oaipmh ddi_harvester sitemap kata kata_metadata ddi3_harvester"
+extensions="shibboleth harvest oaipmh_harvester synchronous_search oaipmh ddi_harvester sitemap kata kata_metadata ddi3_harvester admin_reporting"
 # first change in the ini template that will be packaged for prod
 cp development.ini development.ini.backup.preext
 sed -i "/^ckan.plugins/s|$| $extensions|" development.ini
