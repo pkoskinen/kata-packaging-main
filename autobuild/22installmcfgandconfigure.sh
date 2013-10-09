@@ -1,6 +1,6 @@
 #! /bin/sh
 cd rpmbuild/RPMS/noarch
-sudo yum install -y mcfg-[0-9][0-9][0-9][0-9][0-9][0-9]-1.el6.noarch.rpm
+sudo yum install -y mcfg-[0-9]*-1.el6.noarch.rpm
 cd
 if [ -r abuild-input/abuild-dev-kata-master.ini ]
 then
