@@ -46,6 +46,10 @@ pip install -e git+https://github.com/kata-csc/ckanext-sitemap.git${ext_sitemap_
 pip install -e git+git://github.com/kata-csc/ckanext-shibboleth.git${ext_shibboleth_version}#egg=ckanext-shibboleth
 patch -b -p2 -i /usr/share/kata-ckan-dev/setup-patches/who.ini.patch
 
+# Pip won't find Orange-Text anymore, easy_install will
+pip install Orange
+easy_install Orange-Text
+
 pip install -e git+git://github.com/kata-csc/ckanext-kata.git${ext_kata_version}#egg=ckanext-kata
 
 pip install -e git+git://github.com/pkoskinen/ckanext-admin.git${ext_admin_version}#egg=ckanext-admin
