@@ -10,8 +10,8 @@ fi
 trap "rm -f ${LOCKFILE}; exit" INT TERM EXIT
 echo $$ > ${LOCKFILE}
 
-# do stuff
-/home/ckan/pyenv/bin/paster --plugin=ckan search-index rebuild -o --config=/etc/kata.ini
+# reindex missing packages, send output to /dev/null
+/home/ckan/pyenv/bin/paster --plugin=ckan search-index rebuild -o --config=/etc/kata.ini >/dev/null 2>&1
 
 rm -f ${LOCKFILE}
 EOF
