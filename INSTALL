@@ -55,7 +55,7 @@ II. Installation steps
    1.a. "sudo yum install http://www.nic.funet.fi/pub/mirrors/fedora.redhat.com/pub/epel/6/i386/epel-release-6-8.noarch.rpm"
    1.b "cd /etc/yum.repos.d"
    1.c "sudo curl -O http://download.opensuse.org/repositories/security://shibboleth/CentOS_CentOS-6/security:shibboleth.repo"
-   1.d "sudo yum install -y http://yum.postgresql.org/9.2/redhat/rhel-6-x86_64/pgdg-redhat92-9.2-7.noarch.rpm"
+   1.d "sudo yum install -y http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-redhat93-9.3-1.noarch.rpm"
 
 
 2. Install dummy-deps

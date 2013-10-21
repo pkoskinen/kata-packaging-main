@@ -25,8 +25,8 @@ Requires: mod_ssl
 Requires: odt2txt
 Requires: patch
 Requires: policycoreutils-python
-Requires: postgresql92
-Requires: postgresql92-server
+Requires: postgresql93
+Requires: postgresql93-server
 Requires: rabbitmq-server
 Requires: shibboleth
 Requires: supervisor
@@ -135,7 +135,7 @@ install kataindex $RPM_BUILD_ROOT/etc/cron.hourly/
 install katatracking $RPM_BUILD_ROOT/etc/cron.daily/
 install harvester.conf $RPM_BUILD_ROOT/%{scriptdir}/
 install kata.conf $RPM_BUILD_ROOT/etc/httpd/conf.d/
-install postgresql-9.2 $RPM_BUILD_ROOT/etc/sysconfig/pgsql/
+install postgresql-9.3 $RPM_BUILD_ROOT/etc/sysconfig/pgsql/
 
 
 %clean
@@ -165,7 +165,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0655,root,root)/etc/cron.daily/katatracking
 %{scriptdir}/harvester.conf
 /etc/httpd/conf.d/kata.conf
-/etc/sysconfig/pgsql/postgresql-9.2
+/etc/sysconfig/pgsql/postgresql-9.3
 
 %{patchdir}/attribute-map.xml.patch
 %{patchdir}/attribute-policy.xml.patch
@@ -183,7 +183,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %{scriptdir}/04configuredependencies.sh %{patchdir}
-ln -s /usr/pgsql-9.2/bin/pg_config /usr/bin/pg_config
+ln -s /usr/pgsql-9.3/bin/pg_config /usr/bin/pg_config
 %{scriptdir}/16configshibbolethsp.sh "/usr/share/kata-ckan-prod"
 %{scriptdir}/20setuppostgres.sh %{patchdir}
 %{scriptdir}/24setupapachessl.sh "/usr/share/kata-ckan-prod"
@@ -216,7 +216,7 @@ service supervisord stop
 service rabbitmq-server stop
 service httpd stop
 service shibd stop
-service postgresql-9.2 stop
+service postgresql-9.3 stop
 
 %postun
 

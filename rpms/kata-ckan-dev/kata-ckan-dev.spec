@@ -22,8 +22,8 @@ Requires: numpy
 Requires: odt2txt
 Requires: patch
 Requires: policycoreutils-python
-Requires: postgresql92-devel
-Requires: postgresql92-server
+Requires: postgresql93-devel
+Requires: postgresql93-server
 Requires: python-devel
 Requires: rabbitmq-server
 Requires: shibboleth
@@ -115,7 +115,7 @@ install katatracking $RPM_BUILD_ROOT/etc/cron.daily/
 install harvester.conf $RPM_BUILD_ROOT/%{katadatadir}/
 install kata.conf $RPM_BUILD_ROOT/etc/httpd/conf.d/
 install data/pip.freeze.lastknown $RPM_BUILD_ROOT/%{katadatadir}/
-install postgresql-9.2 $RPM_BUILD_ROOT/etc/sysconfig/pgsql/
+install postgresql-9.3 $RPM_BUILD_ROOT/etc/sysconfig/pgsql/
 install version.info $RPM_BUILD_ROOT/%{katadatadir}/kata-packaging.versioninfo
 
 
@@ -162,7 +162,7 @@ rm -rf $RPM_BUILD_ROOT
 /etc/httpd/conf.d/kata.conf
 %{katadatadir}/pip.freeze.lastknown
 %{katadatadir}/kata-packaging.versioninfo
-/etc/sysconfig/pgsql/postgresql-9.2
+/etc/sysconfig/pgsql/postgresql-9.3
 
 # need the directory, otherwise %post cannot write to it
 %{katadocdir}
@@ -170,7 +170,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %{scriptdir}/04configuredependencies.sh %{patchdir}
-ln -s /usr/pgsql-9.2/bin/pg_config /usr/bin/pg_config
+ln -s /usr/pgsql-9.3/bin/pg_config /usr/bin/pg_config
 su -c "%{scriptdir}/08getpyenv.sh /home/ckan" apache
 su -c "%{scriptdir}/12getpythonpackages.sh /home/ckan" apache
 %{scriptdir}/16configshibbolethsp.sh "/usr/share/kata-ckan-dev"
