@@ -16,10 +16,10 @@ then
    source /etc/kata-ckan-dev/versions
 else
    ext_harvest_version=""
-   ext_urn_version=""
+#   ext_urn_version=""
    ext_oaipmh_version=""
    ext_ddi_version=""
-   ext_sitemap_version=""
+#   ext_sitemap_version=""
    ext_shibboleth_version=""
    ext_kata_version=""
    ext_admin_version=""
@@ -33,7 +33,7 @@ oururl='git+https://github.com/kata-csc/ckanext-harvest.git'
 pip install -e ${oururl}${ext_harvest_version}#egg=ckanext-harvest
 pip install carrot
 
-pip install -e git+https://github.com/kata-csc/ckanext-urn.git${ext_urn_version}#egg=ckanext-urn
+#pip install -e git+https://github.com/kata-csc/ckanext-urn.git${ext_urn_version}#egg=ckanext-urn
 
 pip install -e git+https://github.com/kata-csc/ckanext-oaipmh.git${ext_oaipmh_version}#egg=ckanext-oaipmh
 
@@ -41,7 +41,7 @@ pip install -e git+https://github.com/kata-csc/ckanext-oaipmh.git${ext_oaipmh_ve
 pip install -e bzr+lp:beautifulsoup#egg=BeautifulSoup
 pip install -e git+https://github.com/kata-csc/ckanext-ddi.git${ext_ddi_version}#egg=ckanext-ddi
 
-pip install -e git+https://github.com/kata-csc/ckanext-sitemap.git${ext_sitemap_version}#egg=ckanext-sitemap
+#pip install -e git+https://github.com/kata-csc/ckanext-sitemap.git${ext_sitemap_version}#egg=ckanext-sitemap
 
 pip install -e git+git://github.com/kata-csc/ckanext-shibboleth.git${ext_shibboleth_version}#egg=ckanext-shibboleth
 patch -b -p2 -i /usr/share/kata-ckan-dev/setup-patches/who.ini.patch
@@ -59,7 +59,7 @@ $(dirname $0)/48initextensionsdb.sh $instloc
 paster --plugin=ckan user add harvester password=harvester email=harvester@harvesting.none --config=/etc/kata.ini
 paster --plugin=ckan sysadmin add harvester --config=/etc/kata.ini
 
-extensions="shibboleth harvest oaipmh_harvester synchronous_search oaipmh ddi_harvester sitemap kata kata_metadata ddi3_harvester admin_reporting"
+extensions="harvest synchronous_search kata kata_metadata shibboleth oaipmh_harvester ddi_harvester admin_reporting"
 # first change in the ini template that will be packaged for prod
 cp development.ini development.ini.backup.preext
 sed -i "/^ckan.plugins/s|$| $extensions|" development.ini

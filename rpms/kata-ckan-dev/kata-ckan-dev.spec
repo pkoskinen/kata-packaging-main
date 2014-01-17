@@ -29,6 +29,10 @@ Requires: rabbitmq-server
 Requires: shibboleth
 Requires: supervisor
 Requires: w3m
+Requires: lapack
+Requires: lapack-devel
+Requires: blas
+Requires: blas-devel
 Conflicts: kata-ckan-prod
 # Fedora documentation says one should use...
 #BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
