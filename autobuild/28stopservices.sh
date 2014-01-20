@@ -5,5 +5,5 @@
 # don't package any open file (not sure, there shouldn't be any...) 
 sudo service supervisord stop
 sudo service httpd stop
-sudo service postgresql-9.2 stop
+sudo service postgresql-9.3 stop
 
