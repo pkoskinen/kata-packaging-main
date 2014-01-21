@@ -172,13 +172,13 @@ Starting tomcat6: [  OK  ]
 + chsh -s /bin/bash apache
 Changing shell for apache.
 Shell changed.
-+ mkdir /home/ckan
-+ chown apache:apache /home/ckan
++ mkdir /opt/data/ckan
++ chown apache:apache /opt/data/ckan
 + '[' -f /tmp/kata-SKIP08 ']'
-+ instloc=/home/ckan
-+ cd /home/ckan
-+ mkdir -p /home/ckan/download
-+ cd /home/ckan/download
++ instloc=/opt/data/ckan
++ cd /opt/data/ckan
++ mkdir -p /opt/data/ckan/download
++ cd /opt/data/ckan/download
 + curl -O https://raw.github.com/pypa/virtualenv/master/virtualenv.py
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -191,8 +191,8 @@ New python executable in pyenv/bin/python
 Installing setuptools............................done.
 Installing pip.....................done.
 + '[' -f /tmp/kata-SKIP12 ']'
-+ instloc=/home/ckan
-+ cd /home/ckan
++ instloc=/opt/data/ckan
++ cd /opt/data/ckan
 + source pyenv/bin/activate
 ++ deactivate nondestructive
 ++ unset pydoc
@@ -203,18 +203,18 @@ Installing pip.....................done.
 ++ '[' -n '' ']'
 ++ unset VIRTUAL_ENV
 ++ '[' '!' nondestructive = nondestructive ']'
-++ VIRTUAL_ENV=/home/ckan/pyenv
+++ VIRTUAL_ENV=/opt/data/ckan/pyenv
 ++ export VIRTUAL_ENV
 ++ _OLD_VIRTUAL_PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
-++ PATH=/home/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
+++ PATH=/opt/data/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
 ++ export PATH
 ++ '[' -n '' ']'
 ++ '[' -z '' ']'
 ++ _OLD_VIRTUAL_PS1=
 ++ '[' x '!=' x ']'
-+++ basename /home/ckan/pyenv
++++ basename /opt/data/ckan/pyenv
 ++ '[' pyenv = __ ']'
-+++ basename /home/ckan/pyenv
++++ basename /opt/data/ckan/pyenv
 ++ PS1='(pyenv)'
 ++ export PS1
 ++ alias 'pydoc=python -m pydoc'
@@ -225,7 +225,7 @@ Installing pip.....................done.
 + theirurl=git+https://github.com/okfn/ckan.git
 + oururl=git+https://github.com/kata-csc/ckan.git
 + pip install -e git+https://github.com/kata-csc/ckan.git#egg=ckan
-Initialized empty Git repository in /home/ckan/pyenv/src/ckan/doc/_themes/sphinx-theme-okfn/.git/
+Initialized empty Git repository in /opt/data/ckan/pyenv/src/ckan/doc/_themes/sphinx-theme-okfn/.git/
 Obtaining ckan from git+https://github.com/kata-csc/ckan.git#egg=ckan
   Cloning https://github.com/kata-csc/ckan.git to ./pyenv/src/ckan
   Running setup.py egg_info for package ckan
@@ -247,11 +247,11 @@ Installing collected packages: ckan
     
     warning: no files found matching '*' under directory 'ckanext/**/i18n'
     no previously-included directories found matching '.git'
-    Creating /home/ckan/pyenv/lib/python2.6/site-packages/ckan.egg-link (link to .)
+    Creating /opt/data/ckan/pyenv/lib/python2.6/site-packages/ckan.egg-link (link to .)
     Adding ckan 2.0a to easy-install.pth file
-    Installing ckan-admin script to /home/ckan/pyenv/bin
+    Installing ckan-admin script to /opt/data/ckan/pyenv/bin
     
-    Installed /home/ckan/pyenv/src/ckan
+    Installed /opt/data/ckan/pyenv/src/ckan
 Successfully installed ckan
 Cleaning up...
 + pip install -r pyenv/src/ckan/pip-requirements.txt
@@ -451,8 +451,8 @@ Installing collected packages: Genshi, sqlalchemy-migrate, sqlalchemy, webhelper
     warning: no previously-included files matching '*pyc' found anywhere in distribution
     warning: no previously-included files found matching '.hgtags'
     warning: no previously-included files matching '*' found under directory 'docs/_build'
-    Installing migrate script to /home/ckan/pyenv/bin
-    Installing migrate-repository script to /home/ckan/pyenv/bin
+    Installing migrate script to /opt/data/ckan/pyenv/bin
+    Installing migrate-repository script to /opt/data/ckan/pyenv/bin
   Running setup.py install for sqlalchemy
     building 'sqlalchemy.cprocessors' extension
     gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -I/usr/include/python2.6 -c lib/sqlalchemy/cextension/processors.c -o build/temp.linux-x86_64-2.6/lib/sqlalchemy/cextension/processors.o
@@ -465,16 +465,16 @@ Installing collected packages: Genshi, sqlalchemy-migrate, sqlalchemy, webhelper
   Running setup.py install for webhelpers
     no previously-included directories found matching 'docs/_build'
   Running setup.py install for pyutilib.component.core
-    Skipping installation of /home/ckan/pyenv/lib/python2.6/site-packages/pyutilib/__init__.py (namespace package)
-    Skipping installation of /home/ckan/pyenv/lib/python2.6/site-packages/pyutilib/component/__init__.py (namespace package)
-    SyntaxError: ('invalid syntax', ('/home/ckan/pyenv/lib/python2.6/site-packages/pyutilib/component/core/core3.py', 320, 34, 'class Interface(object, metaclass=InterfaceMeta):\n'))
+    Skipping installation of /opt/data/ckan/pyenv/lib/python2.6/site-packages/pyutilib/__init__.py (namespace package)
+    Skipping installation of /opt/data/ckan/pyenv/lib/python2.6/site-packages/pyutilib/component/__init__.py (namespace package)
+    SyntaxError: ('invalid syntax', ('/opt/data/ckan/pyenv/lib/python2.6/site-packages/pyutilib/component/core/core3.py', 320, 34, 'class Interface(object, metaclass=InterfaceMeta):\n'))
     
-    Installing /home/ckan/pyenv/lib/python2.6/site-packages/pyutilib.component.core-4.5.3-py2.6-nspkg.pth
+    Installing /opt/data/ckan/pyenv/lib/python2.6/site-packages/pyutilib.component.core-4.5.3-py2.6-nspkg.pth
   Running setup.py develop for vdm
-    Creating /home/ckan/pyenv/lib/python2.6/site-packages/vdm.egg-link (link to .)
+    Creating /opt/data/ckan/pyenv/lib/python2.6/site-packages/vdm.egg-link (link to .)
     Adding vdm 0.11 to easy-install.pth file
     
-    Installed /home/ckan/pyenv/src/vdm
+    Installed /opt/data/ckan/pyenv/src/vdm
   Running setup.py install for solrpy
     warning: no previously-included files matching '*.pyo' found anywhere in distribution
   Running setup.py install for formalchemy
@@ -490,9 +490,9 @@ Installing collected packages: Genshi, sqlalchemy-migrate, sqlalchemy, webhelper
     warning: no files found matching '*pt' under directory 'formalchemy'
   Running setup.py install for pairtree
     changing mode of build/scripts-2.6/ppath from 644 to 755
-    changing mode of /home/ckan/pyenv/bin/ppath to 755
+    changing mode of /opt/data/ckan/pyenv/bin/ppath to 755
   Running setup.py install for ofs
-    Installing ofs_upload script to /home/ckan/pyenv/bin
+    Installing ofs_upload script to /opt/data/ckan/pyenv/bin
   Running setup.py install for apachemiddleware
     warning: no files found matching 'ez_setup.py'
   Running setup.py install for markupsafe
@@ -500,7 +500,7 @@ Installing collected packages: Genshi, sqlalchemy-migrate, sqlalchemy, webhelper
     gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -I/usr/include/python2.6 -c markupsafe/_speedups.c -o build/temp.linux-x86_64-2.6/markupsafe/_speedups.o
     gcc -pthread -shared build/temp.linux-x86_64-2.6/markupsafe/_speedups.o -L/usr/lib64 -lpython2.6 -o build/lib.linux-x86_64-2.6/markupsafe/_speedups.so
   Running setup.py install for babel
-    Installing pybabel script to /home/ckan/pyenv/bin
+    Installing pybabel script to /opt/data/ckan/pyenv/bin
   Running setup.py install for psycopg2
     building 'psycopg2._psycopg' extension
     gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.4.5 (dt dec pq3 ext)" -DPG_VERSION_HEX=0x08040D -DPSYCOPG_EXTENSIONS=1 -DPSYCOPG_NEW_BOOLEAN=1 -DHAVE_PQFREEMEM=1 -I/usr/include/python2.6 -I. -I/usr/include -I/usr/include/pgsql/server -c psycopg/psycopgmodule.c -o build/temp.linux-x86_64-2.6/psycopg/psycopgmodule.o -Wdeclaration-after-statement
@@ -539,10 +539,10 @@ Installing collected packages: Genshi, sqlalchemy-migrate, sqlalchemy, webhelper
     warning: no previously-included files matching '*.hgignore' found anywhere in distribution
     warning: no previously-included files matching '*.hgtags' found anywhere in distribution
   Running setup.py install for repoze.who
-    Skipping installation of /home/ckan/pyenv/lib/python2.6/site-packages/repoze/__init__.py (namespace package)
-    Skipping installation of /home/ckan/pyenv/lib/python2.6/site-packages/repoze/who/__init__.py (namespace package)
-    Skipping installation of /home/ckan/pyenv/lib/python2.6/site-packages/repoze/who/plugins/__init__.py (namespace package)
-    Installing /home/ckan/pyenv/lib/python2.6/site-packages/repoze.who-1.0.19-py2.6-nspkg.pth
+    Skipping installation of /opt/data/ckan/pyenv/lib/python2.6/site-packages/repoze/__init__.py (namespace package)
+    Skipping installation of /opt/data/ckan/pyenv/lib/python2.6/site-packages/repoze/who/__init__.py (namespace package)
+    Skipping installation of /opt/data/ckan/pyenv/lib/python2.6/site-packages/repoze/who/plugins/__init__.py (namespace package)
+    Installing /opt/data/ckan/pyenv/lib/python2.6/site-packages/repoze.who-1.0.19-py2.6-nspkg.pth
   Running setup.py install for tempita
     /usr/lib64/python2.6/distutils/dist.py:266: UserWarning: Unknown distribution option: 'use_2to3'
       warnings.warn(msg)
@@ -550,33 +550,33 @@ Installing collected packages: Genshi, sqlalchemy-migrate, sqlalchemy, webhelper
     building 'zope.interface._zope_interface_coptimizations' extension
     gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -I/usr/include/python2.6 -c src/zope/interface/_zope_interface_coptimizations.c -o build/temp.linux-x86_64-2.6/src/zope/interface/_zope_interface_coptimizations.o
     gcc -pthread -shared build/temp.linux-x86_64-2.6/src/zope/interface/_zope_interface_coptimizations.o -L/usr/lib64 -lpython2.6 -o build/lib.linux-x86_64-2.6/zope/interface/_zope_interface_coptimizations.so
-    Skipping installation of /home/ckan/pyenv/lib64/python2.6/site-packages/zope/__init__.py (namespace package)
-    Installing /home/ckan/pyenv/lib64/python2.6/site-packages/zope.interface-4.0.1-py2.6-nspkg.pth
+    Skipping installation of /opt/data/ckan/pyenv/lib64/python2.6/site-packages/zope/__init__.py (namespace package)
+    Installing /opt/data/ckan/pyenv/lib64/python2.6/site-packages/zope.interface-4.0.1-py2.6-nspkg.pth
   Running setup.py install for repoze.who.plugins.openid
     /usr/lib64/python2.6/distutils/dist.py:266: UserWarning: Unknown distribution option: 'test_requires'
       warnings.warn(msg)
-    Skipping installation of /home/ckan/pyenv/lib/python2.6/site-packages/repoze/__init__.py (namespace package)
-    Skipping installation of /home/ckan/pyenv/lib/python2.6/site-packages/repoze/who/__init__.py (namespace package)
-    Skipping installation of /home/ckan/pyenv/lib/python2.6/site-packages/repoze/who/plugins/__init__.py (namespace package)
-    Installing /home/ckan/pyenv/lib/python2.6/site-packages/repoze.who.plugins.openid-0.5.3-py2.6-nspkg.pth
+    Skipping installation of /opt/data/ckan/pyenv/lib/python2.6/site-packages/repoze/__init__.py (namespace package)
+    Skipping installation of /opt/data/ckan/pyenv/lib/python2.6/site-packages/repoze/who/__init__.py (namespace package)
+    Skipping installation of /opt/data/ckan/pyenv/lib/python2.6/site-packages/repoze/who/plugins/__init__.py (namespace package)
+    Installing /opt/data/ckan/pyenv/lib/python2.6/site-packages/repoze.who.plugins.openid-0.5.3-py2.6-nspkg.pth
   Running setup.py install for repoze.who-friendlyform
     no previously-included directories found matching 'docs/build'
     warning: no previously-included files matching '*' found under directory 'tests'
     warning: no previously-included files matching '*~' found anywhere in distribution
     warning: no previously-included files matching '*.egg' found anywhere in distribution
     warning: no previously-included files matching '.directory' found anywhere in distribution
-    Skipping installation of /home/ckan/pyenv/lib/python2.6/site-packages/repoze/__init__.py (namespace package)
-    Skipping installation of /home/ckan/pyenv/lib/python2.6/site-packages/repoze/who/__init__.py (namespace package)
-    Skipping installation of /home/ckan/pyenv/lib/python2.6/site-packages/repoze/who/plugins/__init__.py (namespace package)
-    Installing /home/ckan/pyenv/lib/python2.6/site-packages/repoze.who_friendlyform-1.0.8-py2.6-nspkg.pth
+    Skipping installation of /opt/data/ckan/pyenv/lib/python2.6/site-packages/repoze/__init__.py (namespace package)
+    Skipping installation of /opt/data/ckan/pyenv/lib/python2.6/site-packages/repoze/who/__init__.py (namespace package)
+    Skipping installation of /opt/data/ckan/pyenv/lib/python2.6/site-packages/repoze/who/plugins/__init__.py (namespace package)
+    Installing /opt/data/ckan/pyenv/lib/python2.6/site-packages/repoze.who_friendlyform-1.0.8-py2.6-nspkg.pth
   Running setup.py install for routes
     warning: no previously-included files matching '.DS_Store' found anywhere in distribution
     warning: no previously-included files matching '*.hgignore' found anywhere in distribution
     warning: no previously-included files matching '*.hgtags' found anywhere in distribution
   Running setup.py install for paste
-    Skipping installation of /home/ckan/pyenv/lib/python2.6/site-packages/paste/__init__.py (namespace package)
+    Skipping installation of /opt/data/ckan/pyenv/lib/python2.6/site-packages/paste/__init__.py (namespace package)
     warning: no previously-included files matching '*' found under directory 'docs/_build/_sources'
-    Installing /home/ckan/pyenv/lib/python2.6/site-packages/Paste-1.7.5.1-py2.6-nspkg.pth
+    Installing /opt/data/ckan/pyenv/lib/python2.6/site-packages/Paste-1.7.5.1-py2.6-nspkg.pth
   Running setup.py install for Jinja2
     warning: no previously-included files matching '*' found under directory 'docs/_build'
     warning: no previously-included files matching '*.pyc' found under directory 'jinja2'
@@ -604,15 +604,15 @@ Installing collected packages: Genshi, sqlalchemy-migrate, sqlalchemy, webhelper
     no previously-included directories found matching 'env27'
   Running setup.py install for Beaker
   Running setup.py install for PasteDeploy
-    Skipping installation of /home/ckan/pyenv/lib/python2.6/site-packages/paste/__init__.py (namespace package)
-    Installing /home/ckan/pyenv/lib/python2.6/site-packages/PasteDeploy-1.5.0-py2.6-nspkg.pth
+    Skipping installation of /opt/data/ckan/pyenv/lib/python2.6/site-packages/paste/__init__.py (namespace package)
+    Installing /opt/data/ckan/pyenv/lib/python2.6/site-packages/PasteDeploy-1.5.0-py2.6-nspkg.pth
   Running setup.py install for PasteScript
-    Skipping installation of /home/ckan/pyenv/lib/python2.6/site-packages/paste/__init__.py (namespace package)
+    Skipping installation of /opt/data/ckan/pyenv/lib/python2.6/site-packages/paste/__init__.py (namespace package)
     warning: no previously-included files matching '*' found under directory 'docs/_build/_sources'
     warning: no files found matching '*.js' under directory 'paste'
     warning: no files found matching '*.jpg' under directory 'paste'
-    Installing /home/ckan/pyenv/lib/python2.6/site-packages/PasteScript-1.7.5-py2.6-nspkg.pth
-    Installing paster script to /home/ckan/pyenv/bin
+    Installing /opt/data/ckan/pyenv/lib/python2.6/site-packages/PasteScript-1.7.5-py2.6-nspkg.pth
+    Installing paster script to /opt/data/ckan/pyenv/bin
   Running setup.py install for FormEncode
     warning: no files found matching '*.py' under directory '.'
     warning: no files found matching '*.html' under directory 'docs'
@@ -629,15 +629,15 @@ Installing collected packages: Genshi, sqlalchemy-migrate, sqlalchemy, webhelper
     gcc -pthread -shared build/temp.linux-x86_64-2.6/simplejson/_speedups.o -L/usr/lib64 -lpython2.6 -o build/lib.linux-x86_64-2.6/simplejson/_speedups.so
   Running setup.py install for nose
     no previously-included directories found matching 'doc/.build'
-    Installing nosetests-2.6 script to /home/ckan/pyenv/bin
-    Installing nosetests script to /home/ckan/pyenv/bin
+    Installing nosetests-2.6 script to /opt/data/ckan/pyenv/bin
+    Installing nosetests script to /opt/data/ckan/pyenv/bin
   Running setup.py install for Mako
     changing mode of build/scripts-2.6/mako-render from 644 to 755
     warning: no files found matching '*.xml' under directory 'examples'
     warning: no files found matching '*.mako' under directory 'examples'
     warning: no files found matching 'ez_setup.py'
     no previously-included directories found matching 'doc/build/output'
-    changing mode of /home/ckan/pyenv/bin/mako-render to 755
+    changing mode of /opt/data/ckan/pyenv/bin/mako-render to 755
   Running setup.py install for WebError
     paster_plugins not set in setup(), but WebError.egg-info/paster_plugins.txt exists
   Running setup.py install for WebTest
@@ -649,10 +649,10 @@ Installing collected packages: Genshi, sqlalchemy-migrate, sqlalchemy, webhelper
     warning: no files found matching '*.css' under directory 'doc'
     warning: no files found matching '*.html' under directory 'doc'
   Running setup.py install for repoze.lru
-    Skipping installation of /home/ckan/pyenv/lib/python2.6/site-packages/repoze/__init__.py (namespace package)
-    Installing /home/ckan/pyenv/lib/python2.6/site-packages/repoze.lru-0.6-py2.6-nspkg.pth
+    Skipping installation of /opt/data/ckan/pyenv/lib/python2.6/site-packages/repoze/__init__.py (namespace package)
+    Installing /opt/data/ckan/pyenv/lib/python2.6/site-packages/repoze.lru-0.6-py2.6-nspkg.pth
   Running setup.py install for Pygments
-    Installing pygmentize script to /home/ckan/pyenv/bin
+    Installing pygmentize script to /opt/data/ckan/pyenv/bin
   Running setup.py install for six
   Running setup.py install for waitress
   Running setup.py install for beautifulsoup4
@@ -722,11 +722,11 @@ Starting postgresql service: [  OK  ]
 + su -c 'createuser -S -D -R apache' postgres
 + su -c 'createdb -O apache ckandb' postgres
 + '[' -f /tmp/kata-SKIP22 ']'
-+ instloc=/home/ckan
++ instloc=/opt/data/ckan
 ++ date +%y%m%d-%H%M%S
 + postfix=-130510-190317
 + cp /opt/data/solr/conf/schema.xml /opt/data/solr/conf/schema.xml.bak--130510-190317
-+ cp /home/ckan/pyenv/src/ckan/ckan/config/solr/schema-2.0.xml /opt/data/solr/conf/schema.xml
++ cp /opt/data/ckan/pyenv/src/ckan/ckan/config/solr/schema-2.0.xml /opt/data/solr/conf/schema.xml
 + service tomcat6 restart
 Stopping tomcat6: [  OK  ]
 Starting tomcat6: [  OK  ]
@@ -739,8 +739,8 @@ patching file ssl.conf
 + /usr/bin/python /usr/share/mcfg/tool/mcfg.py run /usr/share/mcfg/config/kata-template.ini /root/kata-master.ini 24
 + popd
 + '[' -f /tmp/kata-SKIP28 ']'
-+ instloc=/home/ckan
-+ cd /home/ckan
++ instloc=/opt/data/ckan
++ cd /opt/data/ckan
 + source pyenv/bin/activate
 ++ deactivate nondestructive
 ++ unset pydoc
@@ -751,18 +751,18 @@ patching file ssl.conf
 ++ '[' -n '' ']'
 ++ unset VIRTUAL_ENV
 ++ '[' '!' nondestructive = nondestructive ']'
-++ VIRTUAL_ENV=/home/ckan/pyenv
+++ VIRTUAL_ENV=/opt/data/ckan/pyenv
 ++ export VIRTUAL_ENV
 ++ _OLD_VIRTUAL_PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
-++ PATH=/home/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
+++ PATH=/opt/data/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
 ++ export PATH
 ++ '[' -n '' ']'
 ++ '[' -z '' ']'
 ++ _OLD_VIRTUAL_PS1=
 ++ '[' x '!=' x ']'
-+++ basename /home/ckan/pyenv
++++ basename /opt/data/ckan/pyenv
 ++ '[' pyenv = __ ']'
-+++ basename /home/ckan/pyenv
++++ basename /opt/data/ckan/pyenv
 ++ PS1='(pyenv)'
 ++ export PS1
 ++ alias 'pydoc=python -m pydoc'
@@ -771,7 +771,7 @@ patching file ssl.conf
 + cd pyenv/src/ckan
 + paster make-config ckan development.ini
 Distribution already installed:
-  ckan 2.0a from /home/ckan/pyenv/src/ckan
+  ckan 2.0a from /opt/data/ckan/pyenv/src/ckan
 Creating development.ini
 Now you should edit the config files
   development.ini
@@ -790,15 +790,15 @@ patching file development.ini
 + chown -R apache:apache /opt/data/ckan
 + mkdir /var/log/ckan
 + chown apache:apache /var/log/ckan
-+ cp /home/ckan/pyenv/src/ckan/development.ini /etc/kata.ini
++ cp /opt/data/ckan/pyenv/src/ckan/development.ini /etc/kata.ini
 + python /usr/share/mcfg/tool/mcfg.py run /usr/share/mcfg/config/kata-template.ini /root/kata-master.ini 31
 + python /usr/share/mcfg/tool/mcfg.py run /usr/share/mcfg/config/kata-template.ini /root/kata-master.ini 32
 + chown apache:apache /etc/kata.ini
 + semanage fcontext -a -t httpd_sys_content_t /etc/kata.ini
 + restorecon /etc/kata.ini
 + '[' -f /tmp/kata-SKIP36 ']'
-+ instloc=/home/ckan
-+ cd /home/ckan
++ instloc=/opt/data/ckan
++ cd /opt/data/ckan
 + source pyenv/bin/activate
 ++ deactivate nondestructive
 ++ unset pydoc
@@ -809,18 +809,18 @@ patching file development.ini
 ++ '[' -n '' ']'
 ++ unset VIRTUAL_ENV
 ++ '[' '!' nondestructive = nondestructive ']'
-++ VIRTUAL_ENV=/home/ckan/pyenv
+++ VIRTUAL_ENV=/opt/data/ckan/pyenv
 ++ export VIRTUAL_ENV
 ++ _OLD_VIRTUAL_PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
-++ PATH=/home/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
+++ PATH=/opt/data/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
 ++ export PATH
 ++ '[' -n '' ']'
 ++ '[' -z '' ']'
 ++ _OLD_VIRTUAL_PS1=
 ++ '[' x '!=' x ']'
-+++ basename /home/ckan/pyenv
++++ basename /opt/data/ckan/pyenv
 ++ '[' pyenv = __ ']'
-+++ basename /home/ckan/pyenv
++++ basename /opt/data/ckan/pyenv
 ++ PS1='(pyenv)'
 ++ export PS1
 ++ alias 'pydoc=python -m pydoc'
@@ -829,15 +829,15 @@ patching file development.ini
 + cd pyenv/src/ckan
 + '[' '!' -e /tmp/kata-SKIP-dbinit ']'
 + paster --plugin=ckan db init --config=/etc/kata.ini
-/home/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_pkg_lname
+/opt/data/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_pkg_lname
   ret = fn(self, con, *args, **kw)
-/home/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_pkg_slname
+/opt/data/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_pkg_slname
   ret = fn(self, con, *args, **kw)
-/home/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_pkg_suname
+/opt/data/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_pkg_suname
   ret = fn(self, con, *args, **kw)
-/home/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_pkg_uname
+/opt/data/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_pkg_uname
   ret = fn(self, con, *args, **kw)
-/home/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_user_name_index
+/opt/data/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_user_name_index
   ret = fn(self, con, *args, **kw)
 2013-05-10 19:03:57,221 INFO  [ckan.model] CKAN database version upgraded: 0 -> 65
 2013-05-10 19:03:57,343 INFO  [ckan.model] Database initialised
@@ -853,7 +853,7 @@ patching file httpd.conf
 + popd
 + chkconfig httpd on
 + setsebool -P httpd_can_network_connect 1
-+ chcon -R --type=httpd_sys_content_t /home/ckan
++ chcon -R --type=httpd_sys_content_t /opt/data/ckan
 + touch /var/log/ckan/ckan.log
 + chcon -R --type=httpd_sys_content_t /opt/data/ckan
 + mkdir /var/www/.orange
@@ -865,8 +865,8 @@ patching file httpd.conf
 + sed -i.orig 's/CFUNCTYPE(c_int)(lambda: None)/#CFUNCTYPE(c_int)(lambda: None)/' /usr/lib/python2.6/ctypes/__init__.py
 sed: can't read /usr/lib/python2.6/ctypes/__init__.py: No such file or directory
 + '[' -f /tmp/kata-SKIP44 ']'
-+ instloc=/home/ckan
-+ cd /home/ckan/pyenv
++ instloc=/opt/data/ckan
++ cd /opt/data/ckan/pyenv
 + source ./bin/activate
 ++ deactivate nondestructive
 ++ unset pydoc
@@ -877,18 +877,18 @@ sed: can't read /usr/lib/python2.6/ctypes/__init__.py: No such file or directory
 ++ '[' -n '' ']'
 ++ unset VIRTUAL_ENV
 ++ '[' '!' nondestructive = nondestructive ']'
-++ VIRTUAL_ENV=/home/ckan/pyenv
+++ VIRTUAL_ENV=/opt/data/ckan/pyenv
 ++ export VIRTUAL_ENV
 ++ _OLD_VIRTUAL_PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
-++ PATH=/home/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
+++ PATH=/opt/data/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
 ++ export PATH
 ++ '[' -n '' ']'
 ++ '[' -z '' ']'
 ++ _OLD_VIRTUAL_PS1=
 ++ '[' x '!=' x ']'
-+++ basename /home/ckan/pyenv
++++ basename /opt/data/ckan/pyenv
 ++ '[' pyenv = __ ']'
-+++ basename /home/ckan/pyenv
++++ basename /opt/data/ckan/pyenv
 ++ PS1='(pyenv)'
 ++ export PS1
 ++ alias 'pydoc=python -m pydoc'
@@ -907,14 +907,14 @@ sed: can't read /usr/lib/python2.6/ctypes/__init__.py: No such file or directory
 + oururl=git+https://github.com/kata-csc/ckanext-harvest.git
 + pip install -e git+https://github.com/kata-csc/ckanext-harvest.git#egg=ckanext-harvest
 Obtaining ckanext-harvest from git+https://github.com/kata-csc/ckanext-harvest.git#egg=ckanext-harvest
-  Cloning https://github.com/kata-csc/ckanext-harvest.git to /home/ckan/pyenv/src/ckanext-harvest
+  Cloning https://github.com/kata-csc/ckanext-harvest.git to /opt/data/ckan/pyenv/src/ckanext-harvest
   Running setup.py egg_info for package ckanext-harvest
 Installing collected packages: ckanext-harvest
   Running setup.py develop for ckanext-harvest
-    Creating /home/ckan/pyenv/lib/python2.6/site-packages/ckanext-harvest.egg-link (link to .)
+    Creating /opt/data/ckan/pyenv/lib/python2.6/site-packages/ckanext-harvest.egg-link (link to .)
     Adding ckanext-harvest 0.2 to easy-install.pth file
     
-    Installed /home/ckan/pyenv/src/ckanext-harvest
+    Installed /opt/data/ckan/pyenv/src/ckanext-harvest
 Successfully installed ckanext-harvest
 Cleaning up...
 + pip install carrot
@@ -933,26 +933,26 @@ Successfully installed carrot anyjson amqplib
 Cleaning up...
 + pip install -e git+https://github.com/kata-csc/ckanext-urn.git#egg=ckanext-urn
 Obtaining ckanext-urn from git+https://github.com/kata-csc/ckanext-urn.git#egg=ckanext-urn
-  Cloning https://github.com/kata-csc/ckanext-urn.git to /home/ckan/pyenv/src/ckanext-urn
+  Cloning https://github.com/kata-csc/ckanext-urn.git to /opt/data/ckan/pyenv/src/ckanext-urn
   Running setup.py egg_info for package ckanext-urn
     warning: no previously-included files matching '*.pyc' found anywhere in distribution
     
-    Installed /home/ckan/pyenv/src/ckanext-urn/coverage-3.6-py2.6-linux-x86_64.egg
+    Installed /opt/data/ckan/pyenv/src/ckanext-urn/coverage-3.6-py2.6-linux-x86_64.egg
 Installing collected packages: ckanext-urn
   Running setup.py develop for ckanext-urn
-    Creating /home/ckan/pyenv/lib/python2.6/site-packages/ckanext-urn.egg-link (link to .)
+    Creating /opt/data/ckan/pyenv/lib/python2.6/site-packages/ckanext-urn.egg-link (link to .)
     Adding ckanext-urn 0.1 to easy-install.pth file
     
-    Installed /home/ckan/pyenv/src/ckanext-urn
+    Installed /opt/data/ckan/pyenv/src/ckanext-urn
 Successfully installed ckanext-urn
 Cleaning up...
 + pip install -e git+https://github.com/kata-csc/ckanext-oaipmh.git#egg=ckanext-oaipmh
 Obtaining ckanext-oaipmh from git+https://github.com/kata-csc/ckanext-oaipmh.git#egg=ckanext-oaipmh
-  Cloning https://github.com/kata-csc/ckanext-oaipmh.git to /home/ckan/pyenv/src/ckanext-oaipmh
+  Cloning https://github.com/kata-csc/ckanext-oaipmh.git to /opt/data/ckan/pyenv/src/ckanext-oaipmh
   Running setup.py egg_info for package ckanext-oaipmh
 Downloading/unpacking pyoai (from ckanext-oaipmh)
   Running setup.py egg_info for package pyoai
-Requirement already satisfied (use --upgrade to upgrade): ckanext-harvest in /home/ckan/pyenv/src/ckanext-harvest (from ckanext-oaipmh)
+Requirement already satisfied (use --upgrade to upgrade): ckanext-harvest in /opt/data/ckan/pyenv/src/ckanext-harvest (from ckanext-oaipmh)
 Downloading/unpacking lxml (from pyoai->ckanext-oaipmh)
   Running setup.py egg_info for package lxml
     /usr/lib64/python2.6/distutils/dist.py:266: UserWarning: Unknown distribution option: 'bugtrack_url'
@@ -965,10 +965,10 @@ Downloading/unpacking lxml (from pyoai->ckanext-oaipmh)
     warning: no files found matching '*.txt' under directory 'src/lxml/tests'
 Installing collected packages: ckanext-oaipmh, pyoai, lxml
   Running setup.py develop for ckanext-oaipmh
-    Creating /home/ckan/pyenv/lib/python2.6/site-packages/ckanext-oaipmh.egg-link (link to .)
+    Creating /opt/data/ckan/pyenv/lib/python2.6/site-packages/ckanext-oaipmh.egg-link (link to .)
     Adding ckanext-oaipmh 0.1 to easy-install.pth file
     
-    Installed /home/ckan/pyenv/src/ckanext-oaipmh
+    Installed /opt/data/ckan/pyenv/src/ckanext-oaipmh
   Running setup.py install for pyoai
   Running setup.py install for lxml
     /usr/lib64/python2.6/distutils/dist.py:266: UserWarning: Unknown distribution option: 'bugtrack_url'
@@ -978,7 +978,7 @@ Installing collected packages: ckanext-oaipmh, pyoai, lxml
     Using build configuration of libxslt 1.1.26
     Building against libxml2/libxslt in the following directory: /usr/lib64
     building 'lxml.etree' extension
-    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -I/usr/include/libxml2 -I/home/ckan/pyenv/build/lxml/src/lxml/includes -I/usr/include/python2.6 -c src/lxml/lxml.etree.c -o build/temp.linux-x86_64-2.6/src/lxml/lxml.etree.o
+    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -I/usr/include/libxml2 -I/opt/data/ckan/pyenv/build/lxml/src/lxml/includes -I/usr/include/python2.6 -c src/lxml/lxml.etree.c -o build/temp.linux-x86_64-2.6/src/lxml/lxml.etree.o
     src/lxml/lxml.etree.c: In function ‘__pyx_f_4lxml_5etree__xslt_resolve_from_python’:
     src/lxml/lxml.etree.c:135356: warning: enumeration value ‘__pyx_e_4lxml_5etree_PARSER_DATA_INVALID’ not handled in switch
     src/lxml/lxml.etree.c: In function ‘__pyx_pf_4lxml_5etree_4XSLT_18__call__’:
@@ -999,7 +999,7 @@ Installing collected packages: ckanext-oaipmh, pyoai, lxml
     src/lxml/lxml.etree.c:88687: warning: ‘__pyx_r’ may be used uninitialized in this function
     gcc -pthread -shared build/temp.linux-x86_64-2.6/src/lxml/lxml.etree.o -L/usr/lib64 -L/usr/lib64 -lxslt -lexslt -lxml2 -lz -lm -lpython2.6 -o build/lib.linux-x86_64-2.6/lxml/etree.so
     building 'lxml.objectify' extension
-    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -I/usr/include/libxml2 -I/home/ckan/pyenv/build/lxml/src/lxml/includes -I/usr/include/python2.6 -c src/lxml/lxml.objectify.c -o build/temp.linux-x86_64-2.6/src/lxml/lxml.objectify.o
+    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -I/usr/include/libxml2 -I/opt/data/ckan/pyenv/build/lxml/src/lxml/includes -I/usr/include/python2.6 -c src/lxml/lxml.objectify.c -o build/temp.linux-x86_64-2.6/src/lxml/lxml.objectify.o
     gcc -pthread -shared build/temp.linux-x86_64-2.6/src/lxml/lxml.objectify.o -L/usr/lib64 -L/usr/lib64 -lxslt -lexslt -lxml2 -lz -lm -lpython2.6 -o build/lib.linux-x86_64-2.6/lxml/objectify.so
     warning: no files found matching '*.txt' under directory 'src/lxml/tests'
 Successfully installed ckanext-oaipmh pyoai lxml
@@ -1011,21 +1011,21 @@ write to Launchpad or access private data.  See "bzr help launchpad-login".
 You have not informed bzr of your Launchpad ID, and you must do this to
 write to Launchpad or access private data.  See "bzr help launchpad-login".
 Obtaining BeautifulSoup from bzr+lp:beautifulsoup#egg=BeautifulSoup
-  Checking out lp:beautifulsoup to /home/ckan/pyenv/src/beautifulsoup
+  Checking out lp:beautifulsoup to /opt/data/ckan/pyenv/src/beautifulsoup
   Running setup.py egg_info for package BeautifulSoup
 Installing collected packages: BeautifulSoup
   Running setup.py develop for BeautifulSoup
-    Creating /home/ckan/pyenv/lib/python2.6/site-packages/beautifulsoup4.egg-link (link to .)
+    Creating /opt/data/ckan/pyenv/lib/python2.6/site-packages/beautifulsoup4.egg-link (link to .)
     Adding beautifulsoup4 4.1.3 to easy-install.pth file
     
-    Installed /home/ckan/pyenv/src/beautifulsoup
+    Installed /opt/data/ckan/pyenv/src/beautifulsoup
 Successfully installed BeautifulSoup
 Cleaning up...
 + pip install -e git+https://github.com/kata-csc/ckanext-ddi.git#egg=ckanext-ddi
 Obtaining ckanext-ddi from git+https://github.com/kata-csc/ckanext-ddi.git#egg=ckanext-ddi
-  Cloning https://github.com/kata-csc/ckanext-ddi.git to /home/ckan/pyenv/src/ckanext-ddi
+  Cloning https://github.com/kata-csc/ckanext-ddi.git to /opt/data/ckan/pyenv/src/ckanext-ddi
   Running setup.py egg_info for package ckanext-ddi
-Requirement already satisfied (use --upgrade to upgrade): beautifulsoup4 in /home/ckan/pyenv/src/beautifulsoup (from ckanext-ddi)
+Requirement already satisfied (use --upgrade to upgrade): beautifulsoup4 in /opt/data/ckan/pyenv/src/beautifulsoup (from ckanext-ddi)
 Downloading/unpacking ckanclient (from ckanext-ddi)
   Downloading ckanclient-0.10.tar.gz
   Running setup.py egg_info for package ckanclient
@@ -1036,13 +1036,13 @@ Downloading/unpacking unicodecsv==0.9.0 (from ckanext-ddi)
   Running setup.py egg_info for package unicodecsv
 Downloading/unpacking python-dateutil (from ckanext-ddi)
   Running setup.py egg_info for package python-dateutil
-Requirement already satisfied (use --upgrade to upgrade): six in /home/ckan/pyenv/lib/python2.6/site-packages (from python-dateutil->ckanext-ddi)
+Requirement already satisfied (use --upgrade to upgrade): six in /opt/data/ckan/pyenv/lib/python2.6/site-packages (from python-dateutil->ckanext-ddi)
 Installing collected packages: ckanext-ddi, ckanclient, unicodecsv, python-dateutil
   Running setup.py develop for ckanext-ddi
-    Creating /home/ckan/pyenv/lib/python2.6/site-packages/ckanext-ddi.egg-link (link to .)
+    Creating /opt/data/ckan/pyenv/lib/python2.6/site-packages/ckanext-ddi.egg-link (link to .)
     Adding ckanext-ddi 0.1 to easy-install.pth file
     
-    Installed /home/ckan/pyenv/src/ckanext-ddi
+    Installed /opt/data/ckan/pyenv/src/ckanext-ddi
   Running setup.py install for ckanclient
     /usr/lib64/python2.6/distutils/dist.py:266: UserWarning: Unknown distribution option: 'always_unzip'
       warnings.warn(msg)
@@ -1052,33 +1052,33 @@ Successfully installed ckanext-ddi ckanclient unicodecsv python-dateutil
 Cleaning up...
 + pip install -e git+https://github.com/kata-csc/ckanext-sitemap.git#egg=ckanext-sitemap
 Obtaining ckanext-sitemap from git+https://github.com/kata-csc/ckanext-sitemap.git#egg=ckanext-sitemap
-  Cloning https://github.com/kata-csc/ckanext-sitemap.git to /home/ckan/pyenv/src/ckanext-sitemap
+  Cloning https://github.com/kata-csc/ckanext-sitemap.git to /opt/data/ckan/pyenv/src/ckanext-sitemap
   Running setup.py egg_info for package ckanext-sitemap
 Installing collected packages: ckanext-sitemap
   Running setup.py develop for ckanext-sitemap
-    Creating /home/ckan/pyenv/lib/python2.6/site-packages/ckanext-sitemap.egg-link (link to .)
+    Creating /opt/data/ckan/pyenv/lib/python2.6/site-packages/ckanext-sitemap.egg-link (link to .)
     Adding ckanext-sitemap 0.1 to easy-install.pth file
     
-    Installed /home/ckan/pyenv/src/ckanext-sitemap
+    Installed /opt/data/ckan/pyenv/src/ckanext-sitemap
 Successfully installed ckanext-sitemap
 Cleaning up...
 + pip install -e git+git://github.com/kata-csc/ckanext-shibboleth.git#egg=ckanext-shibboleth
 Obtaining ckanext-shibboleth from git+git://github.com/kata-csc/ckanext-shibboleth.git#egg=ckanext-shibboleth
-  Cloning git://github.com/kata-csc/ckanext-shibboleth.git to /home/ckan/pyenv/src/ckanext-shibboleth
+  Cloning git://github.com/kata-csc/ckanext-shibboleth.git to /opt/data/ckan/pyenv/src/ckanext-shibboleth
   Running setup.py egg_info for package ckanext-shibboleth
 Installing collected packages: ckanext-shibboleth
   Running setup.py develop for ckanext-shibboleth
-    Creating /home/ckan/pyenv/lib/python2.6/site-packages/ckanext-repoze-who-shibboleth.egg-link (link to .)
+    Creating /opt/data/ckan/pyenv/lib/python2.6/site-packages/ckanext-repoze-who-shibboleth.egg-link (link to .)
     Adding ckanext-repoze-who-shibboleth 0.2 to easy-install.pth file
     
-    Installed /home/ckan/pyenv/src/ckanext-shibboleth
+    Installed /opt/data/ckan/pyenv/src/ckanext-shibboleth
 Successfully installed ckanext-shibboleth
 Cleaning up...
 + patch -b -p2 -i /usr/share/kata-ckan-dev/setup-patches/who.ini.patch
 patching file who.ini
 + pip install -e git+git://github.com/kata-csc/ckanext-kata.git#egg=ckanext-kata
 Obtaining ckanext-kata from git+git://github.com/kata-csc/ckanext-kata.git#egg=ckanext-kata
-  Cloning git://github.com/kata-csc/ckanext-kata.git to /home/ckan/pyenv/src/ckanext-kata
+  Cloning git://github.com/kata-csc/ckanext-kata.git to /opt/data/ckan/pyenv/src/ckanext-kata
   Running setup.py egg_info for package ckanext-kata
 Downloading/unpacking rdflib (from ckanext-kata)
   Running setup.py egg_info for package rdflib
@@ -1097,10 +1097,10 @@ Downloading/unpacking Orange (from ckanext-kata)
     Downloading http://pypi.python.org/packages/source/d/distribute/distribute-0.6.26.tar.gz
     Extracting in /tmp/tmpS3mreP
     Now working in /tmp/tmpS3mreP/distribute-0.6.26
-    Building a Distribute egg in /home/ckan/pyenv/build/Orange
+    Building a Distribute egg in /opt/data/ckan/pyenv/build/Orange
     warning: no files found matching 'Makefile' under directory 'docs'
     warning: no files found matching 'indexsidebar.html' under directory 'docs'
-    /home/ckan/pyenv/build/Orange/distribute-0.6.26-py2.6.egg
+    /opt/data/ckan/pyenv/build/Orange/distribute-0.6.26-py2.6.egg
     warning: no previously-included files matching '*' found under directory 'source/orangeqt/build'
     no previously-included directories found matching 'source/orange/px'
     no previously-included directories found matching 'source/orange/ppp'
@@ -1115,17 +1115,17 @@ Downloading/unpacking Orange-Text (from ckanext-kata)
     Downloading http://pypi.python.org/packages/source/d/distribute/distribute-0.6.26.tar.gz
     Extracting in /tmp/tmpKTcotg
     Now working in /tmp/tmpKTcotg/distribute-0.6.26
-    Building a Distribute egg in /home/ckan/pyenv/build/Orange-Text
+    Building a Distribute egg in /opt/data/ckan/pyenv/build/Orange-Text
     warning: no files found matching 'Makefile' under directory 'docs'
     warning: no files found matching 'indexsidebar.html' under directory 'docs'
-    /home/ckan/pyenv/build/Orange-Text/distribute-0.6.26-py2.6.egg
+    /opt/data/ckan/pyenv/build/Orange-Text/distribute-0.6.26-py2.6.egg
     warning: no files found matching '*.txt'
 Downloading/unpacking isodate (from rdflib->ckanext-kata)
   Downloading isodate-0.4.9.tar.gz
   Running setup.py egg_info for package isodate
 Downloading/unpacking html5lib (from rdflib->ckanext-kata)
   Running setup.py egg_info for package html5lib
-Requirement already satisfied (use --upgrade to upgrade): setuptools in /home/ckan/pyenv/lib/python2.6/site-packages/setuptools-0.6c11-py2.6.egg (from Orange->ckanext-kata)
+Requirement already satisfied (use --upgrade to upgrade): setuptools in /opt/data/ckan/pyenv/lib/python2.6/site-packages/setuptools-0.6c11-py2.6.egg (from Orange->ckanext-kata)
 Downloading/unpacking numpy (from Orange->ckanext-kata)
   Running setup.py egg_info for package numpy
     Running from numpy source directory.
@@ -1134,29 +1134,29 @@ Downloading/unpacking numpy (from Orange->ckanext-kata)
     F2PY Version 2
     blas_opt_info:
     blas_mkl_info:
-      libraries mkl,vml,guide not found in ['/home/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
+      libraries mkl,vml,guide not found in ['/opt/data/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
       NOT AVAILABLE
     
     atlas_blas_threads_info:
     Setting PTATLAS=ATLAS
-      libraries ptf77blas,ptcblas,atlas not found in ['/home/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64/atlas', '/usr/lib64/sse2', '/usr/lib64', '/usr/lib']
+      libraries ptf77blas,ptcblas,atlas not found in ['/opt/data/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64/atlas', '/usr/lib64/sse2', '/usr/lib64', '/usr/lib']
       NOT AVAILABLE
     
     atlas_blas_info:
-      libraries f77blas,cblas,atlas not found in ['/home/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64/atlas', '/usr/lib64/sse2', '/usr/lib64', '/usr/lib']
+      libraries f77blas,cblas,atlas not found in ['/opt/data/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64/atlas', '/usr/lib64/sse2', '/usr/lib64', '/usr/lib']
       NOT AVAILABLE
     
-    /home/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1494: UserWarning:
+    /opt/data/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1494: UserWarning:
         Atlas (http://math-atlas.sourceforge.net/) libraries not found.
         Directories to search for the libraries can be specified in the
         numpy/distutils/site.cfg file (section [atlas]) or by setting
         the ATLAS environment variable.
       warnings.warn(AtlasNotFoundError.__doc__)
     blas_info:
-      libraries blas not found in ['/home/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
+      libraries blas not found in ['/opt/data/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
       NOT AVAILABLE
     
-    /home/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1503: UserWarning:
+    /opt/data/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1503: UserWarning:
         Blas (http://www.netlib.org/blas/) libraries not found.
         Directories to search for the libraries can be specified in the
         numpy/distutils/site.cfg file (section [blas]) or by setting
@@ -1165,7 +1165,7 @@ Downloading/unpacking numpy (from Orange->ckanext-kata)
     blas_src_info:
       NOT AVAILABLE
     
-    /home/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1506: UserWarning:
+    /opt/data/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1506: UserWarning:
         Blas (http://www.netlib.org/blas/) sources not found.
         Directories to search for the sources can be specified in the
         numpy/distutils/site.cfg file (section [blas_src]) or by setting
@@ -1177,15 +1177,15 @@ Downloading/unpacking numpy (from Orange->ckanext-kata)
     lapack_opt_info:
     lapack_mkl_info:
     mkl_info:
-      libraries mkl,vml,guide not found in ['/home/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
+      libraries mkl,vml,guide not found in ['/opt/data/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
       NOT AVAILABLE
     
       NOT AVAILABLE
     
     atlas_threads_info:
     Setting PTATLAS=ATLAS
-      libraries ptf77blas,ptcblas,atlas not found in /home/ckan/pyenv/lib
-      libraries lapack_atlas not found in /home/ckan/pyenv/lib
+      libraries ptf77blas,ptcblas,atlas not found in /opt/data/ckan/pyenv/lib
+      libraries lapack_atlas not found in /opt/data/ckan/pyenv/lib
       libraries ptf77blas,ptcblas,atlas not found in /usr/local/lib64
       libraries lapack_atlas not found in /usr/local/lib64
       libraries ptf77blas,ptcblas,atlas not found in /usr/local/lib
@@ -1202,8 +1202,8 @@ Downloading/unpacking numpy (from Orange->ckanext-kata)
       NOT AVAILABLE
     
     atlas_info:
-      libraries f77blas,cblas,atlas not found in /home/ckan/pyenv/lib
-      libraries lapack_atlas not found in /home/ckan/pyenv/lib
+      libraries f77blas,cblas,atlas not found in /opt/data/ckan/pyenv/lib
+      libraries lapack_atlas not found in /opt/data/ckan/pyenv/lib
       libraries f77blas,cblas,atlas not found in /usr/local/lib64
       libraries lapack_atlas not found in /usr/local/lib64
       libraries f77blas,cblas,atlas not found in /usr/local/lib
@@ -1219,17 +1219,17 @@ Downloading/unpacking numpy (from Orange->ckanext-kata)
     numpy.distutils.system_info.atlas_info
       NOT AVAILABLE
     
-    /home/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1408: UserWarning:
+    /opt/data/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1408: UserWarning:
         Atlas (http://math-atlas.sourceforge.net/) libraries not found.
         Directories to search for the libraries can be specified in the
         numpy/distutils/site.cfg file (section [atlas]) or by setting
         the ATLAS environment variable.
       warnings.warn(AtlasNotFoundError.__doc__)
     lapack_info:
-      libraries lapack not found in ['/home/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
+      libraries lapack not found in ['/opt/data/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
       NOT AVAILABLE
     
-    /home/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1419: UserWarning:
+    /opt/data/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1419: UserWarning:
         Lapack (http://www.netlib.org/lapack/) libraries not found.
         Directories to search for the libraries can be specified in the
         numpy/distutils/site.cfg file (section [lapack]) or by setting
@@ -1238,7 +1238,7 @@ Downloading/unpacking numpy (from Orange->ckanext-kata)
     lapack_src_info:
       NOT AVAILABLE
     
-    /home/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1422: UserWarning:
+    /opt/data/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1422: UserWarning:
         Lapack (http://www.netlib.org/lapack/) sources not found.
         Directories to search for the sources can be specified in the
         numpy/distutils/site.cfg file (section [lapack_src]) or by setting
@@ -1291,10 +1291,10 @@ Downloading/unpacking numpy (from Orange->ckanext-kata)
     _configtest.c:1: warning: conflicting types for built-in function ‘exp’
     gcc -pthread _configtest.o -o _configtest
     _configtest.o: In function `main':
-    /home/ckan/pyenv/build/numpy/_configtest.c:6: undefined reference to `exp'
+    /opt/data/ckan/pyenv/build/numpy/_configtest.c:6: undefined reference to `exp'
     collect2: ld returned 1 exit status
     _configtest.o: In function `main':
-    /home/ckan/pyenv/build/numpy/_configtest.c:6: undefined reference to `exp'
+    /opt/data/ckan/pyenv/build/numpy/_configtest.c:6: undefined reference to `exp'
     collect2: ld returned 1 exit status
     failure.
     removing: _configtest.c _configtest.o
@@ -1764,10 +1764,10 @@ Downloading/unpacking numpy (from Orange->ckanext-kata)
     _configtest.c:1: warning: conflicting types for built-in function ‘exp’
     gcc -pthread _configtest.o -o _configtest
     _configtest.o: In function `main':
-    /home/ckan/pyenv/build/numpy/_configtest.c:6: undefined reference to `exp'
+    /opt/data/ckan/pyenv/build/numpy/_configtest.c:6: undefined reference to `exp'
     collect2: ld returned 1 exit status
     _configtest.o: In function `main':
-    /home/ckan/pyenv/build/numpy/_configtest.c:6: undefined reference to `exp'
+    /opt/data/ckan/pyenv/build/numpy/_configtest.c:6: undefined reference to `exp'
     collect2: ld returned 1 exit status
     failure.
     removing: _configtest.c _configtest.o
@@ -2240,10 +2240,10 @@ Downloading/unpacking numpy (from Orange->ckanext-kata)
     _configtest.c:1: warning: conflicting types for built-in function ‘exp’
     gcc -pthread _configtest.o -o _configtest
     _configtest.o: In function `main':
-    /home/ckan/pyenv/build/numpy/_configtest.c:6: undefined reference to `exp'
+    /opt/data/ckan/pyenv/build/numpy/_configtest.c:6: undefined reference to `exp'
     collect2: ld returned 1 exit status
     _configtest.o: In function `main':
-    /home/ckan/pyenv/build/numpy/_configtest.c:6: undefined reference to `exp'
+    /opt/data/ckan/pyenv/build/numpy/_configtest.c:6: undefined reference to `exp'
     collect2: ld returned 1 exit status
     failure.
     removing: _configtest.c _configtest.o
@@ -2356,7 +2356,7 @@ Downloading/unpacking numpy (from Orange->ckanext-kata)
       adding 'numpy/linalg/dlamch.c' to sources.
       adding 'numpy/linalg/f2c_lite.c' to sources.
     building extension "numpy.random.mtrand" sources
-    /home/ckan/pyenv/build/numpy/numpy/distutils/command/config.py:40: DeprecationWarning:
+    /opt/data/ckan/pyenv/build/numpy/numpy/distutils/command/config.py:40: DeprecationWarning:
     +++++++++++++++++++++++++++++++++++++++++++++++++
     Usage of try_run is deprecated: please do not
     use it anymore, and avoid configuration checks
@@ -2376,10 +2376,10 @@ Downloading/unpacking numpy (from Orange->ckanext-kata)
     build_src: building npy-pkg config files
 Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange, Orange-Text, isodate, html5lib, numpy
   Running setup.py develop for ckanext-kata
-    Creating /home/ckan/pyenv/lib/python2.6/site-packages/ckanext-kata.egg-link (link to .)
+    Creating /opt/data/ckan/pyenv/lib/python2.6/site-packages/ckanext-kata.egg-link (link to .)
     Adding ckanext-kata 0.1 to easy-install.pth file
     
-    Installed /home/ckan/pyenv/src/ckanext-kata
+    Installed /opt/data/ckan/pyenv/src/ckanext-kata
   Running setup.py install for rdflib
     no previously-included directories found matching 'docs/_build'
     warning: no previously-included files matching '*.pyc' found anywhere in distribution
@@ -2417,8 +2417,8 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
     gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -I/usr/include/python2.6 -INone -Isource/include -I/usr/include/python2.6 -c source/include/lcomb.cpp -o build/temp.linux-x86_64-2.6/source/include/lcomb.o
     ar -cr build/temp.linux-x86_64-2.6/liborange_include.a build/temp.linux-x86_64-2.6/source/include/crc32.o build/temp.linux-x86_64-2.6/source/include/stat.o build/temp.linux-x86_64-2.6/source/include/strings.o build/temp.linux-x86_64-2.6/source/include/c2py.o build/temp.linux-x86_64-2.6/source/include/statexceptions.o build/temp.linux-x86_64-2.6/source/include/common.o build/temp.linux-x86_64-2.6/source/include/lcomb.o
     building 'Orange.orange' extension
-    /home/ckan/pyenv/bin/python ../pyxtract/defvectors.py
-    /home/ckan/pyenv/bin/python ../pyxtract/pyprops.py -n orange
+    /opt/data/ckan/pyenv/bin/python ../pyxtract/defvectors.py
+    /opt/data/ckan/pyenv/bin/python ../pyxtract/pyprops.py -n orange
     Creating ppp/examplegen.ppp
     Creating ppp/random.ppp
     Creating ppp/minimal_error.ppp
@@ -2493,7 +2493,7 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
     Creating ppp/rulelearner.ppp
     Creating ppp/c4.5.ppp
     Creating ppp/relief.ppp
-    /home/ckan/pyenv/bin/python ../pyxtract/pyxtract.py -m -n orange lib_kernel.cpp lib_components.cpp lib_preprocess.cpp lib_learner.cpp lib_io.cpp lib_vectors.cpp cls_example.cpp cls_value.cpp cls_orange.cpp cls_misc.cpp functions.cpp orange.cpp
+    /opt/data/ckan/pyenv/bin/python ../pyxtract/pyxtract.py -m -n orange lib_kernel.cpp lib_components.cpp lib_preprocess.cpp lib_learner.cpp lib_io.cpp lib_vectors.cpp cls_example.cpp cls_value.cpp cls_orange.cpp cls_misc.cpp functions.cpp orange.cpp
     Parsing lib_kernel.cpp
     Parsing lib_components.cpp
     Parsing lib_preprocess.cpp
@@ -2645,13 +2645,13 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
     g++ -pthread -shared build/temp.linux-x86_64-2.6/source/orange/numeric_interface.o build/temp.linux-x86_64-2.6/source/orange/lookup.o build/temp.linux-x86_64-2.6/source/orange/lib_preprocess.o build/temp.linux-x86_64-2.6/source/orange/logistic.o build/temp.linux-x86_64-2.6/source/orange/domaindepot.o build/temp.linux-x86_64-2.6/source/orange/root.o build/temp.linux-x86_64-2.6/source/orange/imputation.o build/temp.linux-x86_64-2.6/source/orange/vars.o build/temp.linux-x86_64-2.6/source/orange/clas_gen.o build/temp.linux-x86_64-2.6/source/orange/knn.o build/temp.linux-x86_64-2.6/source/orange/boolcnt.o build/temp.linux-x86_64-2.6/source/orange/graph.o build/temp.linux-x86_64-2.6/source/orange/rulelearner.o build/temp.linux-x86_64-2.6/source/orange/distancemap.o build/temp.linux-x86_64-2.6/source/orange/cls_value.o build/temp.linux-x86_64-2.6/source/orange/tdidt_simple.o build/temp.linux-x86_64-2.6/source/orange/redundancy.o build/temp.linux-x86_64-2.6/source/orange/lib_kernel.o build/temp.linux-x86_64-2.6/source/orange/excel.o build/temp.linux-x86_64-2.6/source/orange/logfit.o build/temp.linux-x86_64-2.6/source/orange/filegen.o build/temp.linux-x86_64-2.6/source/orange/cartesian.o build/temp.linux-x86_64-2.6/source/orange/classfromvar.o build/temp.linux-x86_64-2.6/source/orange/nearest.o build/temp.linux-x86_64-2.6/source/orange/functions.o build/temp.linux-x86_64-2.6/source/orange/cls_misc.o build/temp.linux-x86_64-2.6/source/orange/symmatrix.o build/temp.linux-x86_64-2.6/source/orange/induce.o build/temp.linux-x86_64-2.6/source/orange/basket.o build/temp.linux-x86_64-2.6/source/orange/spec_contingency.o build/temp.linux-x86_64-2.6/source/orange/distvars.o build/temp.linux-x86_64-2.6/source/orange/pq.o build/temp.linux-x86_64-2.6/source/orange/examples.o build/temp.linux-x86_64-2.6/source/orange/learn.o build/temp.linux-x86_64-2.6/source/orange/orange.o build/temp.linux-x86_64-2.6/source/orange/spec_gen.o build/temp.linux-x86_64-2.6/source/orange/callback.o build/temp.linux-x86_64-2.6/source/orange/getarg.o build/temp.linux-x86_64-2.6/source/orange/valuelisttemplate.o build/temp.linux-x86_64-2.6/source/orange/estimateprob.o build/temp.linux-x86_64-2.6/source/orange/lib_components.o build/temp.linux-x86_64-2.6/source/orange/bayes.o build/temp.linux-x86_64-2.6/source/orange/basstat.o build/temp.linux-x86_64-2.6/source/orange/libsvm_interface.o build/temp.linux-x86_64-2.6/source/orange/pythonvars.o build/temp.linux-x86_64-2.6/source/orange/logreg.o build/temp.linux-x86_64-2.6/source/orange/c4.5.o build/temp.linux-x86_64-2.6/source/orange/gslconversions.o build/temp.linux-x86_64-2.6/source/orange/majority.o build/temp.linux-x86_64-2.6/source/orange/values.o build/temp.linux-x86_64-2.6/source/orange/examplegen.o build/temp.linux-x86_64-2.6/source/orange/discretize.o build/temp.linux-x86_64-2.6/source/orange/progress.o build/temp.linux-x86_64-2.6/source/orange/errors.o build/temp.linux-x86_64-2.6/source/orange/distance_dtw.o build/temp.linux-x86_64-2.6/source/orange/multi_learner.o build/temp.linux-x86_64-2.6/source/orange/cost.o build/temp.linux-x86_64-2.6/source/orange/lib_io.o build/temp.linux-x86_64-2.6/source/orange/assoc.o build/temp.linux-x86_64-2.6/source/orange/subsets.o build/temp.linux-x86_64-2.6/source/orange/rule_conditions.o build/temp.linux-x86_64-2.6/source/orange/domain.o build/temp.linux-x86_64-2.6/source/orange/garbage.o build/temp.linux-x86_64-2.6/source/orange/earth.o build/temp.linux-x86_64-2.6/source/orange/table.o build/temp.linux-x86_64-2.6/source/orange/cls_orange.o build/temp.linux-x86_64-2.6/source/orange/tdidt_clustering.o build/temp.linux-x86_64-2.6/source/orange/lsq.o build/temp.linux-x86_64-2.6/source/orange/rconversions.o build/temp.linux-x86_64-2.6/source/orange/meta.o build/temp.linux-x86_64-2.6/source/orange/dictproxy.o build/temp.linux-x86_64-2.6/source/orange/pnn.o build/temp.linux-x86_64-2.6/source/orange/costwrapper.o build/temp.linux-x86_64-2.6/source/orange/readdata.o build/temp.linux-x86_64-2.6/source/orange/decomposition.o build/temp.linux-x86_64-2.6/source/orange/cls_example.o build/temp.linux-x86_64-2.6/source/orange/dist_clustering.o build/temp.linux-x86_64-2.6/source/orange/orvector.o build/temp.linux-x86_64-2.6/source/orange/converts.o build/temp.linux-x86_64-2.6/source/orange/trindex.o build/temp.linux-x86_64-2.6/source/orange/lib_learner.o build/temp.linux-x86_64-2.6/source/orange/filter.o build/temp.linux-x86_64-2.6/source/orange/preprocessors.o build/temp.linux-x86_64-2.6/source/orange/survival.o build/temp.linux-x86_64-2.6/source/orange/classifier.o build/temp.linux-x86_64-2.6/source/orange/stringvars.o build/temp.linux-x86_64-2.6/source/orange/transval.o build/temp.linux-x86_64-2.6/source/orange/c45inter.o build/temp.linux-x86_64-2.6/source/orange/transdomain.o build/temp.linux-x86_64-2.6/source/orange/contingency.o build/temp.linux-x86_64-2.6/source/orange/tabdelim.o build/temp.linux-x86_64-2.6/source/orange/multi_classifier.o build/temp.linux-x86_64-2.6/source/orange/minimal_error.o build/temp.linux-x86_64-2.6/source/orange/tdidt_stop.o build/temp.linux-x86_64-2.6/source/orange/tdidt.o build/temp.linux-x86_64-2.6/source/orange/liblinear_interface.o build/temp.linux-x86_64-2.6/source/orange/assoc_sparse.o build/temp.linux-x86_64-2.6/source/orange/hclust.o build/temp.linux-x86_64-2.6/source/orange/lib_vectors.o build/temp.linux-x86_64-2.6/source/orange/minimal_complexity.o build/temp.linux-x86_64-2.6/source/orange/calibrate.o build/temp.linux-x86_64-2.6/source/orange/measures.o build/temp.linux-x86_64-2.6/source/orange/exampleclustering.o build/temp.linux-x86_64-2.6/source/orange/tdidt_split.o build/temp.linux-x86_64-2.6/source/orange/random.o build/temp.linux-x86_64-2.6/source/orange/distance.o build/temp.linux-x86_64-2.6/source/orange/blas/dscal.o build/temp.linux-x86_64-2.6/source/orange/blas/dcopy.o build/temp.linux-x86_64-2.6/source/orange/blas/dnrm2.o build/temp.linux-x86_64-2.6/source/orange/blas/ddot.o build/temp.linux-x86_64-2.6/source/orange/blas/daxpy.o build/temp.linux-x86_64-2.6/source/orange/linpack/dqrsl.o build/temp.linux-x86_64-2.6/source/orange/linpack/dqrdc2.o build/temp.linux-x86_64-2.6/source/orange/linpack/dtrsl.o build/temp.linux-x86_64-2.6/source/orange/linpack/linpack.o build/temp.linux-x86_64-2.6/source/orange/liblinear/linear.o build/temp.linux-x86_64-2.6/source/orange/liblinear/tron.o build/temp.linux-x86_64-2.6/source/orange/libsvm/svm.o -L/usr/lib64 -Lbuild/lib.linux-x86_64-2.6/Orange -Lbuild/temp.linux-x86_64-2.6 -lstdc++ -lorange_include -lpython2.6 -o build/lib.linux-x86_64-2.6/Orange/orange.so -Wl,-R$ORIGIN
     symbolically linking orange.so -> liborange.so
     building 'Orange.orangeom' extension
-    /home/ckan/pyenv/bin/python ../pyxtract/pyprops.py -l ../orange/ppp/stamp -l ../orange/ppp/lists -n orangeom
+    /opt/data/ckan/pyenv/bin/python ../pyxtract/pyprops.py -l ../orange/ppp/stamp -l ../orange/ppp/lists -n orangeom
     Creating ppp/networkoptimization.ppp
     Creating ppp/pathfinder.ppp
     Creating ppp/network.ppp
     Creating ppp/mds.ppp
     Creating ppp/graph_layout.ppp
-    /home/ckan/pyenv/bin/python ../pyxtract/pyxtract.py -m -n orangeom -l ../orange/px/stamp -w OM triangulate.cpp optimizeAnchors.cpp orangeom.cpp mds.cpp networkoptimization.cpp network.cpp pathfinder.cpp graph_layout.cpp
+    /opt/data/ckan/pyenv/bin/python ../pyxtract/pyxtract.py -m -n orangeom -l ../orange/px/stamp -w OM triangulate.cpp optimizeAnchors.cpp orangeom.cpp mds.cpp networkoptimization.cpp network.cpp pathfinder.cpp graph_layout.cpp
     Parsing triangulate.cpp
     Parsing optimizeAnchors.cpp
     Parsing orangeom.cpp
@@ -2701,9 +2701,9 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
     gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -I/usr/include/python2.6 -INone -Isource/include -Isource/orangeom -Isource/orange/ -Isource/orangeom/ppp -Isource/orangeom/px -I/usr/include/python2.6 -c source/orangeom/qhull/geom2.c -o build/temp.linux-x86_64-2.6/source/orangeom/qhull/geom2.o -fPIC -fpermissive -w -DLINUX -DORANGEOM_EXPORTS
     g++ -pthread -shared build/temp.linux-x86_64-2.6/source/orangeom/orangeom.o build/temp.linux-x86_64-2.6/source/orangeom/gml_parser.o build/temp.linux-x86_64-2.6/source/orangeom/gml_scanner.o build/temp.linux-x86_64-2.6/source/orangeom/mds.o build/temp.linux-x86_64-2.6/source/orangeom/network.o build/temp.linux-x86_64-2.6/source/orangeom/networkoptimization.o build/temp.linux-x86_64-2.6/source/orangeom/pathfinder.o build/temp.linux-x86_64-2.6/source/orangeom/triangulate.o build/temp.linux-x86_64-2.6/source/orangeom/optimizeAnchors.o build/temp.linux-x86_64-2.6/source/orangeom/graph_layout.o build/temp.linux-x86_64-2.6/source/orangeom/graphDrawing.o build/temp.linux-x86_64-2.6/source/orangeom/qhull/qset.o build/temp.linux-x86_64-2.6/source/orangeom/qhull/stat.o build/temp.linux-x86_64-2.6/source/orangeom/qhull/mem.o build/temp.linux-x86_64-2.6/source/orangeom/qhull/user.o build/temp.linux-x86_64-2.6/source/orangeom/qhull/qhull.o build/temp.linux-x86_64-2.6/source/orangeom/qhull/global.o build/temp.linux-x86_64-2.6/source/orangeom/qhull/io.o build/temp.linux-x86_64-2.6/source/orangeom/qhull/geom.o build/temp.linux-x86_64-2.6/source/orangeom/qhull/merge.o build/temp.linux-x86_64-2.6/source/orangeom/qhull/poly.o build/temp.linux-x86_64-2.6/source/orangeom/qhull/poly2.o build/temp.linux-x86_64-2.6/source/orangeom/qhull/geom2.o -L/usr/lib64 -Lbuild/lib.linux-x86_64-2.6/Orange -Lbuild/temp.linux-x86_64-2.6 -lstdc++ -lorange_include -lorange -lpython2.6 -o build/lib.linux-x86_64-2.6/Orange/orangeom.so -Wl,-R$ORIGIN
     building 'Orange.orangene' extension
-    /home/ckan/pyenv/bin/python ../pyxtract/pyprops.py -l ../orange/ppp/stamp -l ../orange/ppp/lists -n orangene
+    /opt/data/ckan/pyenv/bin/python ../pyxtract/pyprops.py -l ../orange/ppp/stamp -l ../orange/ppp/lists -n orangene
     Creating ppp/heatmap.ppp
-    /home/ckan/pyenv/bin/python ../pyxtract/pyxtract.py -m -n orangene -w OG -l ../orange/px/stamp orangene.cpp
+    /opt/data/ckan/pyenv/bin/python ../pyxtract/pyxtract.py -m -n orangene -w OG -l ../orange/px/stamp orangene.cpp
     Parsing orangene.cpp
     Creating orangene.px
     Creating displaynames
@@ -2720,12 +2720,12 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
     gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -I/usr/include/python2.6 -INone -Isource/include -Isource/orange/ -I/usr/include/python2.6 -c source/statc/statc.cpp -o build/temp.linux-x86_64-2.6/source/statc/statc.o -fPIC -fpermissive -w -DLINUX -DSTATC_EXPORTS
     g++ -pthread -shared build/temp.linux-x86_64-2.6/source/statc/statc.o -L/usr/lib64 -Lbuild/lib.linux-x86_64-2.6/Orange -Lbuild/temp.linux-x86_64-2.6 -lstdc++ -lorange_include -lpython2.6 -o build/lib.linux-x86_64-2.6/Orange/statc.so -Wl,-R$ORIGIN
     changing mode of build/scripts-2.6/orange-canvas from 644 to 755
-    linking /home/ckan/pyenv/lib64/python2.6/site-packages/Orange/liborange.so -> orange.so
-    changing mode of /home/ckan/pyenv/bin/orange-canvas to 755
+    linking /opt/data/ckan/pyenv/lib64/python2.6/site-packages/Orange/liborange.so -> orange.so
+    changing mode of /opt/data/ckan/pyenv/bin/orange-canvas to 755
   Running setup.py install for Orange-Text
     warning: no files found matching '*.txt'
     building '_text._orngTextWrapper' extension
-    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/home/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/orngTextWrapper/Wrapper_wrap.cxx -o build/temp.linux-x86_64-2.6/src/orngTextWrapper/Wrapper_wrap.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
+    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/opt/data/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/orngTextWrapper/Wrapper_wrap.cxx -o build/temp.linux-x86_64-2.6/src/orngTextWrapper/Wrapper_wrap.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
     src/orngTextWrapper/Wrapper_wrap.cxx: In constructor ‘swig::PyObject_ptr::PyObject_ptr(PyObject*, bool)’:
     src/orngTextWrapper/Wrapper_wrap.cxx:2533: warning: suggest explicit braces to avoid ambiguous ‘else’
     src/orngTextWrapper/Wrapper_wrap.cxx: In destructor ‘swig::PySequence_Cont<T>::~PySequence_Cont()’:
@@ -2738,28 +2738,28 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
     src/orngTextWrapper/Wrapper_wrap.cxx:5650: warning: ‘argv[0]’ may be used uninitialized in this function
     src/orngTextWrapper/Wrapper_wrap.cxx: In function ‘PyObject* _wrap_VectorStr_begin(PyObject*, PyObject*)’:
     src/orngTextWrapper/Wrapper_wrap.cxx:5571: warning: ‘argv[0]’ may be used uninitialized in this function
-    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/home/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/orngTextWrapper/Wrapper.cpp -o build/temp.linux-x86_64-2.6/src/orngTextWrapper/Wrapper.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
+    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/opt/data/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/orngTextWrapper/Wrapper.cpp -o build/temp.linux-x86_64-2.6/src/orngTextWrapper/Wrapper.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
     In file included from src/orngTextWrapper/Wrapper.cpp:5:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::UTF8IsAlphanum(const char*)’:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:150: warning: suggest parentheses around ‘&&’ within ‘||’
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::Latin2IsAlphanum(unsigned char)’:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:162: warning: suggest parentheses around ‘&&’ within ‘||’
-    /home/ckan/pyenv/build/Orange-Text/src/lemmagen/RdrLemmatizer.h: At global scope:
-    /home/ckan/pyenv/build/Orange-Text/src/lemmagen/RdrLemmatizer.h:75: warning: ‘iDataLenStatic’ defined but not used
-    /home/ckan/pyenv/build/Orange-Text/src/lemmagen/RdrLemmatizer.h:76: warning: ‘abDataStatic’ defined but not used
-    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/home/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/tmt/common/Common.cpp -o build/temp.linux-x86_64-2.6/src/tmt/common/Common.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::UTF8IsAlphanum(const char*)’:
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:150: warning: suggest parentheses around ‘&&’ within ‘||’
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::Latin2IsAlphanum(unsigned char)’:
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:162: warning: suggest parentheses around ‘&&’ within ‘||’
+    /opt/data/ckan/pyenv/build/Orange-Text/src/lemmagen/RdrLemmatizer.h: At global scope:
+    /opt/data/ckan/pyenv/build/Orange-Text/src/lemmagen/RdrLemmatizer.h:75: warning: ‘iDataLenStatic’ defined but not used
+    /opt/data/ckan/pyenv/build/Orange-Text/src/lemmagen/RdrLemmatizer.h:76: warning: ‘abDataStatic’ defined but not used
+    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/opt/data/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/tmt/common/Common.cpp -o build/temp.linux-x86_64-2.6/src/tmt/common/Common.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
     In file included from src/tmt/common/Common.cpp:2:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::UTF8IsAlphanum(const char*)’:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:150: warning: suggest parentheses around ‘&&’ within ‘||’
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::Latin2IsAlphanum(unsigned char)’:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:162: warning: suggest parentheses around ‘&&’ within ‘||’
-    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/home/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/tmt/common/Files.cpp -o build/temp.linux-x86_64-2.6/src/tmt/common/Files.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::UTF8IsAlphanum(const char*)’:
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:150: warning: suggest parentheses around ‘&&’ within ‘||’
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::Latin2IsAlphanum(unsigned char)’:
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:162: warning: suggest parentheses around ‘&&’ within ‘||’
+    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/opt/data/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/tmt/common/Files.cpp -o build/temp.linux-x86_64-2.6/src/tmt/common/Files.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
     In file included from src/tmt/common/Files.cpp:2:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::UTF8IsAlphanum(const char*)’:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:150: warning: suggest parentheses around ‘&&’ within ‘||’
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::Latin2IsAlphanum(unsigned char)’:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:162: warning: suggest parentheses around ‘&&’ within ‘||’
-    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/home/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/tmt/lemmatization/FSADictionary.cpp -o build/temp.linux-x86_64-2.6/src/tmt/lemmatization/FSADictionary.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::UTF8IsAlphanum(const char*)’:
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:150: warning: suggest parentheses around ‘&&’ within ‘||’
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::Latin2IsAlphanum(unsigned char)’:
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:162: warning: suggest parentheses around ‘&&’ within ‘||’
+    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/opt/data/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/tmt/lemmatization/FSADictionary.cpp -o build/temp.linux-x86_64-2.6/src/tmt/lemmatization/FSADictionary.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
     src/tmt/lemmatization/FSADictionary.cpp: In constructor ‘TMT::FSADictionary::FSADictionary(const std::string&)’:
     src/tmt/lemmatization/FSADictionary.cpp:40: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’, declared with attribute warn_unused_result
     src/tmt/lemmatization/FSADictionary.cpp:41: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’, declared with attribute warn_unused_result
@@ -2770,16 +2770,16 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
     src/tmt/lemmatization/FSADictionary.cpp:41: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’, declared with attribute warn_unused_result
     src/tmt/lemmatization/FSADictionary.cpp:42: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’, declared with attribute warn_unused_result
     src/tmt/lemmatization/FSADictionary.cpp:43: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’, declared with attribute warn_unused_result
-    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/home/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/tmt/lemmatization/FSALemmatization.cpp -o build/temp.linux-x86_64-2.6/src/tmt/lemmatization/FSALemmatization.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
-    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/home/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/tmt/lemmatization/Lemmatization.cpp -o build/temp.linux-x86_64-2.6/src/tmt/lemmatization/Lemmatization.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
+    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/opt/data/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/tmt/lemmatization/FSALemmatization.cpp -o build/temp.linux-x86_64-2.6/src/tmt/lemmatization/FSALemmatization.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
+    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/opt/data/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/tmt/lemmatization/Lemmatization.cpp -o build/temp.linux-x86_64-2.6/src/tmt/lemmatization/Lemmatization.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
     In file included from src/tmt/lemmatization/Lemmatization.cpp:11:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::UTF8IsAlphanum(const char*)’:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:150: warning: suggest parentheses around ‘&&’ within ‘||’
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::Latin2IsAlphanum(unsigned char)’:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:162: warning: suggest parentheses around ‘&&’ within ‘||’
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::UTF8IsAlphanum(const char*)’:
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:150: warning: suggest parentheses around ‘&&’ within ‘||’
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::Latin2IsAlphanum(unsigned char)’:
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:162: warning: suggest parentheses around ‘&&’ within ‘||’
     src/tmt/lemmatization/Lemmatization.cpp: In static member function ‘static void TMT::Lemmatization::saveWordSet(std::set<std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&, const std::string&)’:
     src/tmt/lemmatization/Lemmatization.cpp:70: warning: ignoring return value of ‘size_t fwrite(const void*, size_t, size_t, FILE*)’, declared with attribute warn_unused_result
-    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/home/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/tmt/lemmatization/PorterStemmer.cpp -o build/temp.linux-x86_64-2.6/src/tmt/lemmatization/PorterStemmer.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
+    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/opt/data/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/tmt/lemmatization/PorterStemmer.cpp -o build/temp.linux-x86_64-2.6/src/tmt/lemmatization/PorterStemmer.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
     src/tmt/lemmatization/PorterStemmer.cpp: In function ‘void step1ab(stemmer*)’:
     src/tmt/lemmatization/PorterStemmer.cpp:218: warning: deprecated conversion from string constant to ‘char*’
     src/tmt/lemmatization/PorterStemmer.cpp:219: warning: deprecated conversion from string constant to ‘char*’
@@ -2876,22 +2876,22 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
     src/tmt/lemmatization/PorterStemmer.cpp:329: warning: deprecated conversion from string constant to ‘char*’
     src/tmt/lemmatization/PorterStemmer.cpp: In function ‘void step5(stemmer*)’:
     src/tmt/lemmatization/PorterStemmer.cpp:344: warning: suggest parentheses around ‘&&’ within ‘||’
-    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/home/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/tmt/strings/StringUtils.cpp -o build/temp.linux-x86_64-2.6/src/tmt/strings/StringUtils.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
+    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/opt/data/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/tmt/strings/StringUtils.cpp -o build/temp.linux-x86_64-2.6/src/tmt/strings/StringUtils.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
     In file included from src/tmt/strings/StringUtils.cpp:3:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::UTF8IsAlphanum(const char*)’:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:150: warning: suggest parentheses around ‘&&’ within ‘||’
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::Latin2IsAlphanum(unsigned char)’:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:162: warning: suggest parentheses around ‘&&’ within ‘||’
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::UTF8IsAlphanum(const char*)’:
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:150: warning: suggest parentheses around ‘&&’ within ‘||’
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::Latin2IsAlphanum(unsigned char)’:
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:162: warning: suggest parentheses around ‘&&’ within ‘||’
     src/tmt/strings/StringUtils.cpp: In function ‘void TMT::StripFileExtension(const std::string&, bool, std::string*)’:
     src/tmt/strings/StringUtils.cpp:726: warning: suggest parentheses around ‘&&’ within ‘||’
     src/tmt/strings/StringUtils.cpp:727: warning: suggest parentheses around ‘&&’ within ‘||’
-    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/home/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/tmt/strings/UTF8Tokenizer.cpp -o build/temp.linux-x86_64-2.6/src/tmt/strings/UTF8Tokenizer.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
+    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/opt/data/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/tmt/strings/UTF8Tokenizer.cpp -o build/temp.linux-x86_64-2.6/src/tmt/strings/UTF8Tokenizer.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
     In file included from C:/Users/frane/Source/tmtorange/src/tmt/strings/UTF8Tokenizer.rr.cpp:9:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::UTF8IsAlphanum(const char*)’:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:150: warning: suggest parentheses around ‘&&’ within ‘||’
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::Latin2IsAlphanum(unsigned char)’:
-    /home/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:162: warning: suggest parentheses around ‘&&’ within ‘||’
-    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/home/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/lemmagen/RdrLemmatizer.cpp -o build/temp.linux-x86_64-2.6/src/lemmagen/RdrLemmatizer.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::UTF8IsAlphanum(const char*)’:
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:150: warning: suggest parentheses around ‘&&’ within ‘||’
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h: In function ‘bool TMT::Latin2IsAlphanum(unsigned char)’:
+    /opt/data/ckan/pyenv/build/Orange-Text/src/tmt/strings/StringUtils.h:162: warning: suggest parentheses around ‘&&’ within ‘||’
+    gcc -pthread -fno-strict-aliasing -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -DNDEBUG -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -D_GNU_SOURCE -fPIC -fwrapv -fPIC -DTMTNOZLIB=1 -DNDEBUG=1 -I/opt/data/ckan/pyenv/build/Orange-Text/src -I/usr/include/python2.6 -c src/lemmagen/RdrLemmatizer.cpp -o build/temp.linux-x86_64-2.6/src/lemmagen/RdrLemmatizer.o -fno-strict-aliasing -Wall -Wno-sign-compare -Woverloaded-virtual
     src/lemmagen/RdrLemmatizer.cpp: In member function ‘char* RdrLemmatizer::Lemmatize(const char*, char*) const’:
     src/lemmagen/RdrLemmatizer.cpp:108: warning: NULL used in arithmetic
     src/lemmagen/RdrLemmatizer.cpp:108: warning: NULL used in arithmetic
@@ -2909,29 +2909,29 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
     F2PY Version 2
     blas_opt_info:
     blas_mkl_info:
-      libraries mkl,vml,guide not found in ['/home/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
+      libraries mkl,vml,guide not found in ['/opt/data/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
       NOT AVAILABLE
     
     atlas_blas_threads_info:
     Setting PTATLAS=ATLAS
-      libraries ptf77blas,ptcblas,atlas not found in ['/home/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64/atlas', '/usr/lib64/sse2', '/usr/lib64', '/usr/lib']
+      libraries ptf77blas,ptcblas,atlas not found in ['/opt/data/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64/atlas', '/usr/lib64/sse2', '/usr/lib64', '/usr/lib']
       NOT AVAILABLE
     
     atlas_blas_info:
-      libraries f77blas,cblas,atlas not found in ['/home/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64/atlas', '/usr/lib64/sse2', '/usr/lib64', '/usr/lib']
+      libraries f77blas,cblas,atlas not found in ['/opt/data/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64/atlas', '/usr/lib64/sse2', '/usr/lib64', '/usr/lib']
       NOT AVAILABLE
     
-    /home/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1494: UserWarning:
+    /opt/data/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1494: UserWarning:
         Atlas (http://math-atlas.sourceforge.net/) libraries not found.
         Directories to search for the libraries can be specified in the
         numpy/distutils/site.cfg file (section [atlas]) or by setting
         the ATLAS environment variable.
       warnings.warn(AtlasNotFoundError.__doc__)
     blas_info:
-      libraries blas not found in ['/home/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
+      libraries blas not found in ['/opt/data/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
       NOT AVAILABLE
     
-    /home/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1503: UserWarning:
+    /opt/data/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1503: UserWarning:
         Blas (http://www.netlib.org/blas/) libraries not found.
         Directories to search for the libraries can be specified in the
         numpy/distutils/site.cfg file (section [blas]) or by setting
@@ -2940,7 +2940,7 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
     blas_src_info:
       NOT AVAILABLE
     
-    /home/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1506: UserWarning:
+    /opt/data/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1506: UserWarning:
         Blas (http://www.netlib.org/blas/) sources not found.
         Directories to search for the sources can be specified in the
         numpy/distutils/site.cfg file (section [blas_src]) or by setting
@@ -2952,15 +2952,15 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
     lapack_opt_info:
     lapack_mkl_info:
     mkl_info:
-      libraries mkl,vml,guide not found in ['/home/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
+      libraries mkl,vml,guide not found in ['/opt/data/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
       NOT AVAILABLE
     
       NOT AVAILABLE
     
     atlas_threads_info:
     Setting PTATLAS=ATLAS
-      libraries ptf77blas,ptcblas,atlas not found in /home/ckan/pyenv/lib
-      libraries lapack_atlas not found in /home/ckan/pyenv/lib
+      libraries ptf77blas,ptcblas,atlas not found in /opt/data/ckan/pyenv/lib
+      libraries lapack_atlas not found in /opt/data/ckan/pyenv/lib
       libraries ptf77blas,ptcblas,atlas not found in /usr/local/lib64
       libraries lapack_atlas not found in /usr/local/lib64
       libraries ptf77blas,ptcblas,atlas not found in /usr/local/lib
@@ -2977,8 +2977,8 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
       NOT AVAILABLE
     
     atlas_info:
-      libraries f77blas,cblas,atlas not found in /home/ckan/pyenv/lib
-      libraries lapack_atlas not found in /home/ckan/pyenv/lib
+      libraries f77blas,cblas,atlas not found in /opt/data/ckan/pyenv/lib
+      libraries lapack_atlas not found in /opt/data/ckan/pyenv/lib
       libraries f77blas,cblas,atlas not found in /usr/local/lib64
       libraries lapack_atlas not found in /usr/local/lib64
       libraries f77blas,cblas,atlas not found in /usr/local/lib
@@ -2994,17 +2994,17 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
     numpy.distutils.system_info.atlas_info
       NOT AVAILABLE
     
-    /home/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1408: UserWarning:
+    /opt/data/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1408: UserWarning:
         Atlas (http://math-atlas.sourceforge.net/) libraries not found.
         Directories to search for the libraries can be specified in the
         numpy/distutils/site.cfg file (section [atlas]) or by setting
         the ATLAS environment variable.
       warnings.warn(AtlasNotFoundError.__doc__)
     lapack_info:
-      libraries lapack not found in ['/home/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
+      libraries lapack not found in ['/opt/data/ckan/pyenv/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
       NOT AVAILABLE
     
-    /home/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1419: UserWarning:
+    /opt/data/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1419: UserWarning:
         Lapack (http://www.netlib.org/lapack/) libraries not found.
         Directories to search for the libraries can be specified in the
         numpy/distutils/site.cfg file (section [lapack]) or by setting
@@ -3013,7 +3013,7 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
     lapack_src_info:
       NOT AVAILABLE
     
-    /home/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1422: UserWarning:
+    /opt/data/ckan/pyenv/build/numpy/numpy/distutils/system_info.py:1422: UserWarning:
         Lapack (http://www.netlib.org/lapack/) sources not found.
         Directories to search for the sources can be specified in the
         numpy/distutils/site.cfg file (section [lapack_src]) or by setting
@@ -3068,10 +3068,10 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
     _configtest.c:1: warning: conflicting types for built-in function ‘exp’
     gcc -pthread _configtest.o -o _configtest
     _configtest.o: In function `main':
-    /home/ckan/pyenv/build/numpy/_configtest.c:6: undefined reference to `exp'
+    /opt/data/ckan/pyenv/build/numpy/_configtest.c:6: undefined reference to `exp'
     collect2: ld returned 1 exit status
     _configtest.o: In function `main':
-    /home/ckan/pyenv/build/numpy/_configtest.c:6: undefined reference to `exp'
+    /opt/data/ckan/pyenv/build/numpy/_configtest.c:6: undefined reference to `exp'
     collect2: ld returned 1 exit status
     failure.
     removing: _configtest.c _configtest.o
@@ -3127,7 +3127,7 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
       adding 'numpy/linalg/dlamch.c' to sources.
       adding 'numpy/linalg/f2c_lite.c' to sources.
     building extension "numpy.random.mtrand" sources
-    /home/ckan/pyenv/build/numpy/numpy/distutils/command/config.py:40: DeprecationWarning:
+    /opt/data/ckan/pyenv/build/numpy/numpy/distutils/command/config.py:40: DeprecationWarning:
     +++++++++++++++++++++++++++++++++++++++++++++++++
     Usage of try_run is deprecated: please do not
     use it anymore, and avoid configuration checks
@@ -3358,14 +3358,14 @@ Installing collected packages: ckanext-kata, rdflib, iso8601, pycountry, Orange,
     Creating build/scripts.linux-x86_64-2.6/f2py
       adding 'build/scripts.linux-x86_64-2.6/f2py' to scripts
     changing mode of build/scripts.linux-x86_64-2.6/f2py from 644 to 755
-    changing mode of /home/ckan/pyenv/bin/f2py to 755
+    changing mode of /opt/data/ckan/pyenv/bin/f2py to 755
 Successfully installed ckanext-kata rdflib iso8601 pycountry Orange Orange-Text isodate html5lib numpy
 Cleaning up...
 ++ dirname /usr/share/kata-ckan-dev/setup-scripts/44installckanextensions.sh
-+ /usr/share/kata-ckan-dev/setup-scripts/48initextensionsdb.sh /home/ckan
++ /usr/share/kata-ckan-dev/setup-scripts/48initextensionsdb.sh /opt/data/ckan
 + '[' -f /tmp/kata-SKIP48 ']'
-+ instloc=/home/ckan
-+ cd /home/ckan
++ instloc=/opt/data/ckan
++ cd /opt/data/ckan
 + '[' '!' -e /tmp/kata-SKIP-dbinit ']'
 + source pyenv/bin/activate
 ++ deactivate nondestructive
@@ -3377,18 +3377,18 @@ Cleaning up...
 ++ '[' -n '' ']'
 ++ unset VIRTUAL_ENV
 ++ '[' '!' nondestructive = nondestructive ']'
-++ VIRTUAL_ENV=/home/ckan/pyenv
+++ VIRTUAL_ENV=/opt/data/ckan/pyenv
 ++ export VIRTUAL_ENV
-++ _OLD_VIRTUAL_PATH=/home/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
-++ PATH=/home/ckan/pyenv/bin:/home/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
+++ _OLD_VIRTUAL_PATH=/opt/data/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
+++ PATH=/opt/data/ckan/pyenv/bin:/opt/data/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
 ++ export PATH
 ++ '[' -n '' ']'
 ++ '[' -z '' ']'
 ++ _OLD_VIRTUAL_PS1=
 ++ '[' x '!=' x ']'
-+++ basename /home/ckan/pyenv
++++ basename /opt/data/ckan/pyenv
 ++ '[' pyenv = __ ']'
-+++ basename /home/ckan/pyenv
++++ basename /opt/data/ckan/pyenv
 ++ PS1='(pyenv)'
 ++ export PS1
 ++ alias 'pydoc=python -m pydoc'
@@ -3424,7 +3424,7 @@ Added harvester as sysadmin
 + sed '/^ckan.plugins/s|$| shibboleth harvest oaipmh_harvester synchronous_search oaipmh ddi_harvester sitemap kata kata_metadata ddi3_harvester|' /tmp/kata.ini
 + rm /tmp/kata.ini
 + '[' -f /tmp/kata-SKIP61 ']'
-+ instloc=/home/ckan
++ instloc=/opt/data/ckan
 + ckanuser=apache
 + service rabbitmq-server start
 Starting rabbitmq-server: SUCCESS
@@ -3432,14 +3432,14 @@ rabbitmq-server.
 + chkconfig rabbitmq-server on
 + '[' '!' -e /tmp/kata-SKIP-dbinit ']'
 + su apache
-2013-05-10 19:34:11,357 INFO  [ckanext.harvest.logic.action.create] Creating harvest source: {'user_id': u'', 'url': u'file:///home/ckan/pyenv/src/ckanext-ddi/ddi3.txt', 'publisher_id': u'', 'type': u'DDI3', 'active': True, 'config': None}
+2013-05-10 19:34:11,357 INFO  [ckanext.harvest.logic.action.create] Creating harvest source: {'user_id': u'', 'url': u'file:///opt/data/ckan/pyenv/src/ckanext-ddi/ddi3.txt', 'publisher_id': u'', 'type': u'DDI3', 'active': True, 'config': None}
 2013-05-10 19:34:11,374 INFO  [ckanext.harvest.logic.action.create] Harvest source created: 6a80fdde-dee7-459b-bbc6-5ed8959c2d1e
 2013-05-10 19:34:11,395 INFO  [ckanext.harvest.logic.action.create] Harvest job create: {'source_id': u'6a80fdde-dee7-459b-bbc6-5ed8959c2d1e'}
 2013-05-10 19:34:11,414 INFO  [ckanext.harvest.logic.action.create] Harvest job saved 82b98909-5dad-4bce-9ddc-b3cf51e33a88
 
 Created new harvest source:
 Source id: 6a80fdde-dee7-459b-bbc6-5ed8959c2d1e
-      url: file:///home/ckan/pyenv/src/ckanext-ddi/ddi3.txt
+      url: file:///opt/data/ckan/pyenv/src/ckanext-ddi/ddi3.txt
      type: DDI3
    active: True
      user: 
@@ -3489,9 +3489,9 @@ Starting httpd: [  OK  ]
 Starting supervisord: [  OK  ]
 Starting crond: [  OK  ]
 + '[' -f /tmp/kata-SKIP70 ']'
-+ instloc=/home/ckan
++ instloc=/opt/data/ckan
 + expected=/usr/share/kata-ckan-dev/setup-data/pip.freeze.lastknown
-+ cd /home/ckan
++ cd /opt/data/ckan
 + source pyenv/bin/activate
 ++ deactivate nondestructive
 ++ unset pydoc
@@ -3502,18 +3502,18 @@ Starting crond: [  OK  ]
 ++ '[' -n '' ']'
 ++ unset VIRTUAL_ENV
 ++ '[' '!' nondestructive = nondestructive ']'
-++ VIRTUAL_ENV=/home/ckan/pyenv
+++ VIRTUAL_ENV=/opt/data/ckan/pyenv
 ++ export VIRTUAL_ENV
 ++ _OLD_VIRTUAL_PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
-++ PATH=/home/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
+++ PATH=/opt/data/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
 ++ export PATH
 ++ '[' -n '' ']'
 ++ '[' -z '' ']'
 ++ _OLD_VIRTUAL_PS1=
 ++ '[' x '!=' x ']'
-+++ basename /home/ckan/pyenv
++++ basename /opt/data/ckan/pyenv
 ++ '[' pyenv = __ ']'
-+++ basename /home/ckan/pyenv
++++ basename /opt/data/ckan/pyenv
 ++ PS1='(pyenv)'
 ++ export PS1
 ++ alias 'pydoc=python -m pydoc'

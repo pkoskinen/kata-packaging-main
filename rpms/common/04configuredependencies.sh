@@ -41,5 +41,5 @@ chsh -s /bin/bash apache
 # the following mkdir will fail in prod.rpm because the directory already 
 # exists when this script is executed
 # no need to add any logic, the failure does not harm
-mkdir /home/ckan
-chown apache:apache /home/ckan
+mkdir -p /opt/data/ckan
+chown apache:apache /opt/data/ckan

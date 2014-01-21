@@ -18,7 +18,7 @@ chown -R ${ckanuser}:${ckanuser} /opt/data/ckan
 mkdir /var/log/ckan
 chown ${ckanuser}:${ckanuser} /var/log/ckan
 
-cp /home/ckan/pyenv/src/ckan/development.ini /etc/kata.ini
+cp /opt/data/ckan/pyenv/src/ckan/development.ini /etc/kata.ini
 python /usr/share/mcfg/tool/mcfg.py run /usr/share/mcfg/config/kata-template.ini /root/kata-master.ini 31
 # run it a second time to support replace_by_ip for development systems
 # previous increment number "stolen" from non-existing script 31...

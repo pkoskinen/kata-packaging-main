@@ -175,14 +175,14 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %{scriptdir}/04configuredependencies.sh %{patchdir}
 ln -s /usr/pgsql-9.3/bin/pg_config /usr/bin/pg_config
-su -c "%{scriptdir}/08getpyenv.sh /home/ckan" apache
-su -c "%{scriptdir}/12getpythonpackages.sh /home/ckan" apache
+su -c "%{scriptdir}/08getpyenv.sh /opt/data/ckan" apache
+su -c "%{scriptdir}/12getpythonpackages.sh /opt/data/ckan" apache
 %{scriptdir}/16configshibbolethsp.sh "/usr/share/kata-ckan-dev"
 %{scriptdir}/20setuppostgres.sh %{patchdir}
 %{scriptdir}/24setupapachessl.sh "/usr/share/kata-ckan-dev"
-cat > /home/ckan/pyenv/bin/wsgi.py <<EOF
+cat > /opt/data/ckan/pyenv/bin/wsgi.py <<EOF
 import os
-instance_dir = '/home/ckan'
+instance_dir = '/opt/data/ckan'
 config_file = '/etc/kata.ini'
 pyenv_bin_dir = os.path.join(instance_dir, 'pyenv', 'bin')
 activate_this = os.path.join(pyenv_bin_dir, 'activate_this.py')
@@ -193,12 +193,12 @@ from paste.script.util.logging_config import fileConfig
 fileConfig(config_filepath)
 application = loadapp('config:%s' % config_filepath)
 EOF
-chmod 777 /home/ckan/pyenv/bin/wsgi.py
-su -c "%{scriptdir}/28setupckan.sh /home/ckan" apache
+chmod 777 /opt/data/ckan/pyenv/bin/wsgi.py
+su -c "%{scriptdir}/28setupckan.sh /opt/data/ckan" apache
 %{scriptdir}/32setupckan-root.sh apache
-su -c "%{scriptdir}/36initckandb.sh /home/ckan" apache
+su -c "%{scriptdir}/36initckandb.sh /opt/data/ckan" apache
 %{scriptdir}/40setupapache.sh %{patchdir}
-su -c "%{scriptdir}/44installckanextensions.sh /home/ckan" apache
+su -c "%{scriptdir}/44installckanextensions.sh /opt/data/ckan" apache
 # no need to call 48initextensionsdb.sh here, previous script does it because
 # it needs in in the middle
 # Let's configure supervisor now, so our harvesters are correctly picked up by
@@ -206,7 +206,7 @@ su -c "%{scriptdir}/44installckanextensions.sh /home/ckan" apache
 cat /usr/share/kata-ckan-dev/setup-data/harvester.conf >> /etc/supervisord.conf
 # Enable tmp directory for logging. Otherwise goes to /
 sed -i 's/;directory/directory/' /etc/supervisord.conf
-%{scriptdir}/61setupsources.sh /home/ckan apache
+%{scriptdir}/61setupsources.sh /opt/data/ckan apache
 service atd restart
 at -f %{katadatadir}/runharvester.sh 'now + 3 minute'
 
@@ -215,7 +215,7 @@ service httpd start
 service supervisord start
 service crond start
 # run this last so the user has a chance to see the output
-su -c "%{scriptdir}/70checkpythonpackages.sh /home/ckan %{katadatadir}/pip.freeze.lastknown" apache
+su -c "%{scriptdir}/70checkpythonpackages.sh /opt/data/ckan %{katadatadir}/pip.freeze.lastknown" apache
 # well, actually it was last but one, but we still need to do this as root
 # afterwards
 %{scriptdir}/71storedevversioninfo.sh %{katadatadir} %{katadocdir}

@@ -141,9 +141,9 @@ Starting tomcat6: [  OK  ]
 + chsh -s /bin/bash apache
 Changing shell for apache.
 Shell changed.
-+ mkdir /home/ckan
-mkdir: cannot create directory `/home/ckan': File exists
-+ chown apache:apache /home/ckan
++ mkdir /opt/data/ckan
+mkdir: cannot create directory `/opt/data/ckan': File exists
++ chown apache:apache /opt/data/ckan
 + '[' -f /tmp/kata-SKIP16 ']'
 + packagedir=/usr/share/kata-ckan-prod
 + pushd /etc/shibboleth
@@ -207,11 +207,11 @@ Starting postgresql service: [  OK  ]
 + su -c 'createuser -S -D -R apache' postgres
 + su -c 'createdb -O apache ckandb' postgres
 + '[' -f /tmp/kata-SKIP22 ']'
-+ instloc=/home/ckan
++ instloc=/opt/data/ckan
 ++ date +%y%m%d-%H%M%S
 + postfix=-130511-101354
 + cp /opt/data/solr/conf/schema.xml /opt/data/solr/conf/schema.xml.bak--130511-101354
-+ cp /home/ckan/pyenv/src/ckan/ckan/config/solr/schema-2.0.xml /opt/data/solr/conf/schema.xml
++ cp /opt/data/ckan/pyenv/src/ckan/ckan/config/solr/schema-2.0.xml /opt/data/solr/conf/schema.xml
 + service tomcat6 restart
 Stopping tomcat6: [  OK  ]
 Starting tomcat6: [  OK  ]
@@ -231,15 +231,15 @@ patching file ssl.conf
 + chown -R apache:apache /opt/data/ckan
 + mkdir /var/log/ckan
 + chown apache:apache /var/log/ckan
-+ cp /home/ckan/pyenv/src/ckan/development.ini /etc/kata.ini
++ cp /opt/data/ckan/pyenv/src/ckan/development.ini /etc/kata.ini
 + python /usr/share/mcfg/tool/mcfg.py run /usr/share/mcfg/config/kata-template.ini /root/kata-master.ini 31
 + python /usr/share/mcfg/tool/mcfg.py run /usr/share/mcfg/config/kata-template.ini /root/kata-master.ini 32
 + chown apache:apache /etc/kata.ini
 + semanage fcontext -a -t httpd_sys_content_t /etc/kata.ini
 + restorecon /etc/kata.ini
 + '[' -f /tmp/kata-SKIP36 ']'
-+ instloc=/home/ckan
-+ cd /home/ckan
++ instloc=/opt/data/ckan
++ cd /opt/data/ckan
 + source pyenv/bin/activate
 ++ deactivate nondestructive
 ++ unset pydoc
@@ -250,18 +250,18 @@ patching file ssl.conf
 ++ '[' -n '' ']'
 ++ unset VIRTUAL_ENV
 ++ '[' '!' nondestructive = nondestructive ']'
-++ VIRTUAL_ENV=/home/ckan/pyenv
+++ VIRTUAL_ENV=/opt/data/ckan/pyenv
 ++ export VIRTUAL_ENV
 ++ _OLD_VIRTUAL_PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
-++ PATH=/home/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
+++ PATH=/opt/data/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
 ++ export PATH
 ++ '[' -n '' ']'
 ++ '[' -z '' ']'
 ++ _OLD_VIRTUAL_PS1=
 ++ '[' x '!=' x ']'
-+++ basename /home/ckan/pyenv
++++ basename /opt/data/ckan/pyenv
 ++ '[' pyenv = __ ']'
-+++ basename /home/ckan/pyenv
++++ basename /opt/data/ckan/pyenv
 ++ PS1='(pyenv)'
 ++ export PS1
 ++ alias 'pydoc=python -m pydoc'
@@ -270,15 +270,15 @@ patching file ssl.conf
 + cd pyenv/src/ckan
 + '[' '!' -e /tmp/kata-SKIP-dbinit ']'
 + paster --plugin=ckan db init --config=/etc/kata.ini
-/home/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_pkg_lname
+/opt/data/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_pkg_lname
   ret = fn(self, con, *args, **kw)
-/home/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_pkg_slname
+/opt/data/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_pkg_slname
   ret = fn(self, con, *args, **kw)
-/home/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_pkg_suname
+/opt/data/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_pkg_suname
   ret = fn(self, con, *args, **kw)
-/home/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_pkg_uname
+/opt/data/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_pkg_uname
   ret = fn(self, con, *args, **kw)
-/home/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_user_name_index
+/opt/data/ckan/pyenv/lib/python2.6/site-packages/sqlalchemy/engine/reflection.py:47: SAWarning: Skipped unsupported reflection of expression-based index idx_user_name_index
   ret = fn(self, con, *args, **kw)
 2013-05-11 10:14:37,447 INFO  [ckan.model] CKAN database version upgraded: 0 -> 65
 2013-05-11 10:14:37,584 INFO  [ckan.model] Database initialised
@@ -294,7 +294,7 @@ patching file httpd.conf
 + popd
 + chkconfig httpd on
 + setsebool -P httpd_can_network_connect 1
-+ chcon -R --type=httpd_sys_content_t /home/ckan
++ chcon -R --type=httpd_sys_content_t /opt/data/ckan
 + touch /var/log/ckan/ckan.log
 + chcon -R --type=httpd_sys_content_t /opt/data/ckan
 + mkdir /var/www/.orange
@@ -306,8 +306,8 @@ patching file httpd.conf
 + sed -i.orig 's/CFUNCTYPE(c_int)(lambda: None)/#CFUNCTYPE(c_int)(lambda: None)/' /usr/lib/python2.6/ctypes/__init__.py
 sed: can't read /usr/lib/python2.6/ctypes/__init__.py: No such file or directory
 + '[' -f /tmp/kata-SKIP48 ']'
-+ instloc=/home/ckan
-+ cd /home/ckan
++ instloc=/opt/data/ckan
++ cd /opt/data/ckan
 + '[' '!' -e /tmp/kata-SKIP-dbinit ']'
 + source pyenv/bin/activate
 ++ deactivate nondestructive
@@ -319,18 +319,18 @@ sed: can't read /usr/lib/python2.6/ctypes/__init__.py: No such file or directory
 ++ '[' -n '' ']'
 ++ unset VIRTUAL_ENV
 ++ '[' '!' nondestructive = nondestructive ']'
-++ VIRTUAL_ENV=/home/ckan/pyenv
+++ VIRTUAL_ENV=/opt/data/ckan/pyenv
 ++ export VIRTUAL_ENV
 ++ _OLD_VIRTUAL_PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
-++ PATH=/home/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
+++ PATH=/opt/data/ckan/pyenv/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin
 ++ export PATH
 ++ '[' -n '' ']'
 ++ '[' -z '' ']'
 ++ _OLD_VIRTUAL_PS1=
 ++ '[' x '!=' x ']'
-+++ basename /home/ckan/pyenv
++++ basename /opt/data/ckan/pyenv
 ++ '[' pyenv = __ ']'
-+++ basename /home/ckan/pyenv
++++ basename /opt/data/ckan/pyenv
 ++ PS1='(pyenv)'
 ++ export PS1
 ++ alias 'pydoc=python -m pydoc'
@@ -341,7 +341,7 @@ sed: can't read /usr/lib/python2.6/ctypes/__init__.py: No such file or directory
 DB tables created
 + paster --plugin=ckanext-kata katacmd initdb --config=/etc/kata.ini
 + '[' -f /tmp/kata-SKIP61 ']'
-+ instloc=/home/ckan
++ instloc=/opt/data/ckan
 + ckanuser=apache
 + service rabbitmq-server start
 Starting rabbitmq-server: SUCCESS
@@ -349,14 +349,14 @@ rabbitmq-server.
 + chkconfig rabbitmq-server on
 + '[' '!' -e /tmp/kata-SKIP-dbinit ']'
 + su apache
-2013-05-11 10:15:34,736 INFO  [ckanext.harvest.logic.action.create] Creating harvest source: {'user_id': u'', 'url': u'file:///home/ckan/pyenv/src/ckanext-ddi/ddi3.txt', 'publisher_id': u'', 'type': u'DDI3', 'active': True, 'config': None}
+2013-05-11 10:15:34,736 INFO  [ckanext.harvest.logic.action.create] Creating harvest source: {'user_id': u'', 'url': u'file:///opt/data/ckan/pyenv/src/ckanext-ddi/ddi3.txt', 'publisher_id': u'', 'type': u'DDI3', 'active': True, 'config': None}
 2013-05-11 10:15:34,765 INFO  [ckanext.harvest.logic.action.create] Harvest source created: 8936eb35-d5d8-49a0-860f-7759f9301341
 2013-05-11 10:15:34,784 INFO  [ckanext.harvest.logic.action.create] Harvest job create: {'source_id': u'8936eb35-d5d8-49a0-860f-7759f9301341'}
 2013-05-11 10:15:34,806 INFO  [ckanext.harvest.logic.action.create] Harvest job saved 761de859-59bc-4ff1-88cd-0a5935731a4a
 
 Created new harvest source:
 Source id: 8936eb35-d5d8-49a0-860f-7759f9301341
-      url: file:///home/ckan/pyenv/src/ckanext-ddi/ddi3.txt
+      url: file:///opt/data/ckan/pyenv/src/ckanext-ddi/ddi3.txt
      type: DDI3
    active: True
      user: 

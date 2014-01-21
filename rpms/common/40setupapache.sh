@@ -15,7 +15,7 @@ chkconfig httpd on
 setsebool -P httpd_can_network_connect 1
 # TODO: chcon is not the right thing here. Everything will break when
 # restorecon is run. See 20setuppostgres.sh for the correct solution
-chcon -R --type=httpd_sys_content_t /home/ckan
+chcon -R --type=httpd_sys_content_t /opt/data/ckan
 touch /var/log/ckan/ckan.log
 chcon -R --type=httpd_sys_content_t /opt/data/ckan
 mkdir /var/www/.orange
