@@ -31,7 +31,7 @@ fi
 theirurl='git+https://github.com/okfn/ckanext-harvest.git'
 oururl='git+https://github.com/kata-csc/ckanext-harvest.git'
 pip install -e ${oururl}${ext_harvest_version}#egg=ckanext-harvest
-pip install carrot
+pip install -r ../ckanext-harvest/pip-requirements.txt
 
 #pip install -e git+https://github.com/kata-csc/ckanext-urn.git${ext_urn_version}#egg=ckanext-urn
 
