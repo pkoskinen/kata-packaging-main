@@ -81,8 +81,7 @@ sudo true
 sudo find /opt/data/ckan/pyenv -depth | sudo cpio -pdm --owner ${me}: $RPM_BUILD_ROOT/
 # not sure why, but testings show that the following 2 directories are not
 # owned by ${me}
-sudo chown ${me} $RPM_BUILD_ROOT/opt/data
-sudo chown ${me} $RPM_BUILD_ROOT/opt/data/ckan
+sudo chown -R ${me} $RPM_BUILD_ROOT/opt
 find $RPM_BUILD_ROOT/opt/data/ckan -name .git -print0 | xargs -0 rm -rf
 find $RPM_BUILD_ROOT/opt/data/ckan -name .gitignore -print0 | xargs -0 rm -f
 find $RPM_BUILD_ROOT/opt/data/ckan -name .svn -print0 | xargs -0 rm -rf
