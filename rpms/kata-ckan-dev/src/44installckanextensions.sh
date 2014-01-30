@@ -19,7 +19,7 @@ else
 #   ext_urn_version=""
    ext_oaipmh_version=""
    ext_ddi_version=""
-#   ext_sitemap_version=""
+   ext_sitemap_version=""
    ext_shibboleth_version=""
    ext_kata_version=""
    ext_admin_version=""
@@ -41,7 +41,7 @@ pip install -e git+https://github.com/kata-csc/ckanext-oaipmh.git${ext_oaipmh_ve
 pip install -e bzr+lp:beautifulsoup#egg=BeautifulSoup
 pip install -e git+https://github.com/kata-csc/ckanext-ddi.git${ext_ddi_version}#egg=ckanext-ddi
 
-#pip install -e git+https://github.com/kata-csc/ckanext-sitemap.git${ext_sitemap_version}#egg=ckanext-sitemap
+pip install -e git+https://github.com/kata-csc/ckanext-sitemap.git${ext_sitemap_version}#egg=ckanext-sitemap
 
 pip install -e git+git://github.com/kata-csc/ckanext-shibboleth.git${ext_shibboleth_version}#egg=ckanext-shibboleth
 patch -b -p2 -i /usr/share/kata-ckan-dev/setup-patches/who.ini.patch
