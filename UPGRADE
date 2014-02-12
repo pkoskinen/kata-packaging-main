@@ -42,13 +42,13 @@ to our existing paster script.
 
 $ sudo yum remove mcfg           (this will pull kata-ckan-prod with it)
 
-check whether there a files left in /home/ckan
+check whether there a files left in /opt/data/ckan/pyenv
 
 Take a backup of anything you might have configured or modyfied yourself and
 remove everything (double-check your command, rm -rf as root is a dangerous
 command...)
 
-$ sudo rm -rf /home/ckan
+$ sudo rm -rf /opt/data/ckan/pyenv
 
 3.) Uninstallation of supervisor
 

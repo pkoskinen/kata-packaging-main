@@ -30,7 +30,7 @@ case "$1" in
     exit
   esac 
 sudo -s -u apache <<EOF
-cd /home/ckan/pyenv
+cd /opt/data/ckan/pyenv
 source bin/activate
 cd src/ckan
 paster $cmd
