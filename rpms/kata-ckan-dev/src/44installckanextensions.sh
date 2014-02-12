@@ -15,7 +15,7 @@ if [ -r /etc/kata-ckan-dev/versions ]
 then
    source /etc/kata-ckan-dev/versions
 else
-   ext_harvest_version=""
+   ext_harvest_version="@release-v2.0"
 #   ext_urn_version=""
    ext_oaipmh_version=""
    ext_ddi_version=""
