@@ -18,8 +18,6 @@ setsebool -P httpd_can_network_connect 1
 chcon -R --type=httpd_sys_content_t /opt/data/ckan
 touch /var/log/ckan/ckan.log
 chcon -R --type=httpd_sys_content_t /opt/data/ckan
-mkdir /var/www/.orange
-chown apache:apache /var/www/.orange
 # TODO: We should not hack other packages' files
 # what will happen when Python gets a security update???
 # well, as long as we do it only in dev it doesn't matter, because

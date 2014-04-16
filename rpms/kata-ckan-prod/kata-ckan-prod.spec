@@ -88,10 +88,6 @@ find $RPM_BUILD_ROOT/opt/data/ckan -name .svn -print0 | xargs -0 rm -rf
 find $RPM_BUILD_ROOT/opt/data/ckan -name .bzr -print0 | xargs -0 rm -rf
 find $RPM_BUILD_ROOT/opt/data/ckan -name .bzrignore -print0 | xargs -0 rm -f
 
-# Remove the symlink to orange and actually copy the file over
-rm $RPM_BUILD_ROOT/opt/data/ckan/pyenv/lib/python2.6/site-packages/Orange/liborange.so
-cp $RPM_BUILD_ROOT/opt/data/ckan/pyenv/lib/python2.6/site-packages/Orange/orange.so $RPM_BUILD_ROOT/opt/data/ckan/pyenv/lib/python2.6/site-packages/Orange/liborange.so
-
 install -d $RPM_BUILD_ROOT/%{scriptdir}
 install -d $RPM_BUILD_ROOT/%{patchdir}
 install -d $RPM_BUILD_ROOT/%{katadatadir}
