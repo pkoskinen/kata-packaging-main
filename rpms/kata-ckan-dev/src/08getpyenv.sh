@@ -10,7 +10,7 @@ instloc=$1
 cd $instloc
 mkdir -p ${instloc}/download
 cd ${instloc}/download
-curl -O https://raw.github.com/pypa/virtualenv/1.10.X/virtualenv.py
+curl -O https://raw.githubusercontent.com/pypa/virtualenv/1.10.X/virtualenv.py
 md5sum virtualenv.py
 # eventually the md5sum should go to some version info, but having
 # it on stdout (= log we regularly capture) is a first step 
